@@ -1,0 +1,2700 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class 12 Physics E-Book | Dual Nature of Radiation & Matter — Hrishikesh M (PGT Physics)</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            ivory: {
+              50: '#FDFBF7',
+              100: '#FAF5EC',
+              200: '#F3E9D8',
+              300: '#E6D7BE',
+            },
+            terracotta: {
+              500: '#D94E28',
+              600: '#C23B18',
+              700: '#9A2C10',
+            },
+            mulberry: {
+              800: '#3B1334',
+              900: '#260B21',
+              950: '#180615',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-page: #FAF6F0;
+      --bg-header-from: #2A0F26;
+      --bg-header-via: #3D1637;
+      --bg-header-to: #1D2829;
+      --accent-primary: #D94E28;
+      --accent-secondary: #0D9488;
+    }
+
+    body.palette-emerald {
+      --bg-page: #F3F8F5;
+      --bg-header-from: #0B2922;
+      --bg-header-via: #133A30;
+      --bg-header-to: #1E2923;
+      --accent-primary: #0D9488;
+      --accent-secondary: #D97706;
+    }
+
+    body.palette-royal {
+      --bg-page: #F7F4FA;
+      --bg-header-from: #1F1135;
+      --bg-header-via: #2E1A4D;
+      --bg-header-to: #3B1530;
+      --accent-primary: #9333EA;
+      --accent-secondary: #E11D48;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: #1F1917;
+    }
+
+    .header-gradient {
+      background: linear-gradient(135deg, var(--bg-header-from), var(--bg-header-via), var(--bg-header-to));
+    }
+
+    /* Custom Scrollbar & Smooth Transitions */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F3E9D8;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C8B69E;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #A69076;
+    }
+
+    /* Math Fraction Utility */
+    .math-frac {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      margin: 0 0.2rem;
+      line-height: 1.1;
+    }
+    .math-frac > span:first-child {
+      border-bottom: 1.5px solid currentColor;
+      padding: 0 0.25rem 0.1rem;
+    }
+    .math-frac > span:last-child {
+      padding: 0.1rem 0.25rem 0;
+    }
+
+    /* Subtle Animated Glow */
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 4px 20px rgba(217, 78, 40, 0.14); }
+      50% { box-shadow: 0 6px 28px rgba(217, 78, 40, 0.28); }
+    }
+    .glow-card {
+      animation: pulseGlow 4s infinite ease-in-out;
+    }
+
+    /* Custom Range Sliders */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 8px;
+      border-radius: 999px;
+      background: #E2D5C1;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      margin-top: -5px;
+      background-color: #D94E28;
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.18);
+    }
+
+    /* Tab Transition */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease-out;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Canvas Responsive Container */
+    canvas {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-orange-600 selection:text-white transition-colors duration-300">
+
+  <!-- ================= TOP HEADER & AUTHOR BANNER ================= -->
+  <header class="sticky top-0 z-40 header-gradient border-b border-amber-500/30 shadow-xl text-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <!-- Left Brand & Chapter Info -->
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500 via-rose-500 to-amber-500 flex items-center justify-center shadow-lg shadow-orange-500/30 shrink-0 border border-amber-200/30">
+            <i class="fa-solid fa-sun text-2xl text-white animate-spin" style="animation-duration: 16s;"></i>
+          </div>
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider rounded-full bg-orange-500/25 text-orange-200 border border-orange-400/40">
+                NCERT Class 12 Physics • Ch 11
+              </span>
+              <span class="px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-teal-500/25 text-teal-200 border border-teal-400/40">
+                Sections 11.5 – 11.7
+              </span>
+            </div>
+            <h1 class="font-display text-lg sm:text-xl font-extrabold tracking-tight text-amber-50 mt-0.5">
+              Dual Nature of Radiation and Matter <span class="text-orange-300 font-normal text-sm hidden sm:inline">| Interactive Smart E-Book</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- Right Author Badge, Palette Switcher & Quick Tools -->
+        <div class="flex flex-wrap items-center justify-between md:justify-end gap-2.5">
+          <!-- Live Theme Palette Switcher -->
+          <div class="flex items-center gap-1.5 bg-black/30 border border-white/15 rounded-xl px-2.5 py-1.5" title="Switch E-Book Color Theme">
+            <span class="text-[10px] uppercase tracking-wider text-amber-200/80 font-bold mr-1 hidden xl:inline">Palette:</span>
+            <button onclick="setThemePalette('terracotta')" class="w-5 h-5 rounded-full bg-gradient-to-br from-orange-500 to-rose-700 border-2 border-white shadow-sm hover:scale-110 transition" title="Terracotta & Mulberry (Default)"></button>
+            <button onclick="setThemePalette('emerald')" class="w-5 h-5 rounded-full bg-gradient-to-br from-teal-500 to-emerald-800 border border-white/60 shadow-sm hover:scale-110 transition" title="Botanical Emerald & Gold"></button>
+            <button onclick="setThemePalette('royal')" class="w-5 h-5 rounded-full bg-gradient-to-br from-purple-500 to-rose-600 border border-white/60 shadow-sm hover:scale-110 transition" title="Royal Amethyst & Crimson"></button>
+          </div>
+
+          <!-- Author Credit Pill -->
+          <div class="flex items-center gap-2.5 bg-gradient-to-r from-amber-500/20 via-rose-500/15 to-amber-500/20 border border-amber-400/40 rounded-xl px-3.5 py-1.5 shadow-inner">
+            <div class="w-8 h-8 rounded-lg bg-amber-400 text-stone-950 flex items-center justify-center font-extrabold text-sm shadow">
+              HM
+            </div>
+            <div class="leading-tight">
+              <p class="text-[10px] uppercase tracking-widest text-amber-200 font-semibold">Created &amp; Curated By</p>
+              <p class="text-xs sm:text-sm font-bold text-white">Hrishikesh M <span class="text-amber-300 font-semibold">(PGT Physics)</span></p>
+            </div>
+          </div>
+
+          <!-- Formula Sheet Modal Button -->
+          <button onclick="toggleFormulaModal()" class="px-3 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-extrabold flex items-center gap-1.5 transition shadow-md">
+            <i class="fa-solid fa-square-root-variable"></i>
+            <span class="hidden sm:inline">Formula Sheet</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= NAVIGATION TABS ================= -->
+      <nav class="mt-3 pt-2.5 border-t border-white/15 flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1" aria-label="E-Book Chapters">
+        <button onclick="switchTab('tab1')" id="btn-tab1" class="nav-tab-btn active-tab shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 bg-gradient-to-r from-orange-500 to-rose-600 text-white shadow-md shadow-orange-600/30">
+          <span class="w-5 h-5 rounded-full bg-black/25 flex items-center justify-center text-xs font-extrabold">1</span>
+          <span>11.5 Wave Theory Failure</span>
+        </button>
+
+        <button onclick="switchTab('tab2')" id="btn-tab2" class="nav-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 bg-white/10 text-amber-100 hover:bg-white/20 hover:text-white">
+          <span class="w-5 h-5 rounded-full bg-black/25 flex items-center justify-center text-xs font-bold">2</span>
+          <span>11.6 Energy Quantum &amp; Equation</span>
+        </button>
+
+        <button onclick="switchTab('tab3')" id="btn-tab3" class="nav-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 bg-white/10 text-amber-100 hover:bg-white/20 hover:text-white">
+          <span class="w-5 h-5 rounded-full bg-black/25 flex items-center justify-center text-xs font-bold">3</span>
+          <span>Derivations, V₀ Graph &amp; Millikan</span>
+        </button>
+
+        <button onclick="switchTab('tab4')" id="btn-tab4" class="nav-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 bg-white/10 text-amber-100 hover:bg-white/20 hover:text-white">
+          <span class="w-5 h-5 rounded-full bg-black/25 flex items-center justify-center text-xs font-bold">4</span>
+          <span>11.7 The Photon Picture</span>
+        </button>
+
+        <button onclick="switchTab('tab5')" id="btn-tab5" class="nav-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 bg-white/10 text-amber-100 hover:bg-white/20 hover:text-white">
+          <span class="w-5 h-5 rounded-full bg-black/25 flex items-center justify-center text-xs font-bold">5</span>
+          <span>Practice Q&amp;A (6)</span>
+        </button>
+
+        <button onclick="switchTab('tab6')" id="btn-tab6" class="nav-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 bg-gradient-to-r from-amber-400/25 to-orange-500/25 border border-amber-300/50 text-amber-200 hover:bg-amber-400/35">
+          <i class="fa-solid fa-trophy text-amber-300"></i>
+          <span>Gamified Quiz</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- =====================================================================
+         TAB 1: 11.5 PHOTOELECTRIC EFFECT AND WAVE THEORY OF LIGHT
+    ====================================================================== -->
+    <section id="tab1" class="tab-pane active space-y-6">
+      <!-- Section Banner -->
+      <div class="rounded-2xl bg-gradient-to-r from-[#FFF0E6] via-[#FFE4D4] to-[#FFF6EE] border-2 border-orange-300 p-5 sm:p-6 shadow-md relative overflow-hidden">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-600 text-white text-xs font-bold mb-2 shadow-sm">
+              <i class="fa-solid fa-water"></i> NCERT SECTION 11.5
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-stone-900">
+              Photoelectric Effect &amp; Wave Theory of Light
+            </h2>
+            <p class="text-stone-700 text-sm mt-1 max-w-3xl font-medium">
+              Why the well-established 19th-century electromagnetic wave model failed completely to explain the experimental observations of photoelectric emission.
+            </p>
+          </div>
+          <button onclick="copySectionNotes('notes-tab1')" class="self-start md:self-center shrink-0 px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold flex items-center gap-2 transition shadow-sm">
+            <i class="fa-regular fa-copy"></i> Copy Concise Notes
+          </button>
+        </div>
+      </div>
+
+      <!-- Concise Pointed Notes Grid -->
+      <div id="notes-tab1" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left Column: Background & Wave Picture (4 cols) -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-5 shadow-md h-full flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2.5 text-teal-700 font-display font-extrabold text-base mb-3 pb-2 border-b border-stone-200">
+                <i class="fa-solid fa-circle-info text-teal-600"></i>
+                <h3>1. What is the Wave Picture of Light?</h3>
+              </div>
+              <ul class="space-y-3 text-sm text-stone-700">
+                <li class="flex items-start gap-2.5">
+                  <span class="text-orange-600 font-bold mt-0.5">▸</span>
+                  <span><strong class="text-stone-900">19th Century Success:</strong> Wave nature of light was well established because it naturally explained <em>Interference</em>, <em>Diffraction</em>, and <em>Polarisation</em>.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-orange-600 font-bold mt-0.5">▸</span>
+                  <span><strong class="text-stone-900">EM Wave Definition:</strong> Light is an electromagnetic (EM) wave consisting of oscillating electric (<span class="font-mono font-bold text-teal-700">E</span>) and magnetic (<span class="font-mono font-bold text-teal-700">B</span>) fields.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-orange-600 font-bold mt-0.5">▸</span>
+                  <span><strong class="text-stone-900">Continuous Energy Distribution:</strong> Energy is distributed <em>continuously</em> over the entire region of space over which the wavefront extends.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="text-orange-600 font-bold mt-0.5">▸</span>
+                  <span><strong class="text-stone-900">Continuous Absorption Assumption:</strong> Free electrons at the metal surface absorb radiant energy <em>continuously</em> as the wave washes over them.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-5 p-3.5 rounded-xl bg-rose-50 border border-rose-300 text-xs text-rose-900">
+              <p class="font-extrabold text-rose-700 uppercase tracking-wider mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Core Verdict (NCERT)</p>
+              <p>The classical wave picture is <strong>unable to explain even the most basic features</strong> of photoelectric emission.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: The 3 Major Contradictions (8 cols) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-5 shadow-md">
+            <div class="flex items-center justify-between flex-wrap gap-2 mb-4 pb-2 border-b border-stone-200">
+              <div class="flex items-center gap-2.5 text-rose-700 font-display font-extrabold text-base">
+                <i class="fa-solid fa-bolt-lightning text-orange-600"></i>
+                <h3>2. Three Fatal Failures of Wave Theory (Point-by-Point for Exams)</h3>
+              </div>
+              <span class="text-xs px-2.5 py-1 rounded-md bg-rose-100 text-rose-800 font-bold border border-rose-300">High-Weightage 3-Mark Question</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Contradiction 1 -->
+              <div class="rounded-xl bg-[#FDF9F3] border border-orange-200 p-4 flex flex-col justify-between hover:border-orange-500 transition shadow-sm">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-2 py-0.5 rounded bg-orange-100 text-orange-800 font-mono text-xs font-bold">Failure #1</span>
+                    <span class="text-xs text-stone-500 font-semibold">Intensity vs K<sub>max</sub></span>
+                  </div>
+                  <h4 class="font-extrabold text-stone-900 text-sm mb-2">Kinetic Energy Problem</h4>
+                  <ul class="space-y-2 text-xs text-stone-700">
+                    <li><strong class="text-amber-800">Wave Prediction:</strong> Greater intensity (<span class="font-mono">I</span>) &rarr; Greater amplitude of <span class="font-mono">E</span> &amp; <span class="font-mono">B</span> fields &rarr; More energy absorbed per electron &rarr; <span class="font-mono">K<sub>max</sub></span> <em>should increase</em> with intensity.</li>
+                    <li><strong class="text-teal-800">Experimental Fact:</strong> <span class="font-mono">K<sub>max</sub></span> is <strong>completely independent of intensity</strong> (depends only on frequency <span class="font-mono">&nu;</span>).</li>
+                  </ul>
+                </div>
+                <div class="mt-3 pt-2 border-t border-orange-200/70 text-[11px] text-rose-700 font-bold">
+                  <i class="fa-solid fa-xmark mr-1"></i> Contradicts Observation (i)
+                </div>
+              </div>
+
+              <!-- Contradiction 2 -->
+              <div class="rounded-xl bg-[#FDF9F3] border border-orange-200 p-4 flex flex-col justify-between hover:border-orange-500 transition shadow-sm">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-2 py-0.5 rounded bg-orange-100 text-orange-800 font-mono text-xs font-bold">Failure #2</span>
+                    <span class="text-xs text-stone-500 font-semibold">Threshold (&nu;<sub>0</sub>)</span>
+                  </div>
+                  <h4 class="font-extrabold text-stone-900 text-sm mb-2">Threshold Frequency Problem</h4>
+                  <ul class="space-y-2 text-xs text-stone-700">
+                    <li><strong class="text-amber-800">Wave Prediction:</strong> At <em>any</em> frequency, a sufficiently intense beam (over enough time) should give electrons enough energy to exceed work function (<span class="font-mono">&phi;<sub>0</sub></span>). <strong>No <span class="font-mono">&nu;<sub>0</sub></span> should exist!</strong></li>
+                    <li><strong class="text-teal-800">Experimental Fact:</strong> A strict <strong>threshold frequency (<span class="font-mono">&nu;<sub>0</sub></span>) exists</strong> below which NO emission occurs at any intensity.</li>
+                  </ul>
+                </div>
+                <div class="mt-3 pt-2 border-t border-orange-200/70 text-[11px] text-rose-700 font-bold">
+                  <i class="fa-solid fa-xmark mr-1"></i> Contradicts Observations (ii) &amp; (iii)
+                </div>
+              </div>
+
+              <!-- Contradiction 3 -->
+              <div class="rounded-xl bg-[#FDF9F3] border border-orange-200 p-4 flex flex-col justify-between hover:border-orange-500 transition shadow-sm">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-2 py-0.5 rounded bg-orange-100 text-orange-800 font-mono text-xs font-bold">Failure #3</span>
+                    <span class="text-xs text-stone-500 font-semibold">Time Delay vs Instant</span>
+                  </div>
+                  <h4 class="font-extrabold text-stone-900 text-sm mb-2">Time-Lag Problem</h4>
+                  <ul class="space-y-2 text-xs text-stone-700">
+                    <li><strong class="text-amber-800">Wave Prediction:</strong> Wavefront energy is shared among millions of surface electrons. Energy absorbed per electron/sec is tiny &rarr; Takes <strong>hours or more</strong> to escape.</li>
+                    <li><strong class="text-teal-800">Experimental Fact:</strong> Emission is <strong>instantaneous</strong> (<span class="font-mono">&Delta;t &approx; 10<sup>-9</sup> s</span>) even at extremely low intensity.</li>
+                  </ul>
+                </div>
+                <div class="mt-3 pt-2 border-t border-orange-200/70 text-[11px] text-rose-700 font-bold">
+                  <i class="fa-solid fa-xmark mr-1"></i> Contradicts Observation (iv)
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Comparison Table for Student Note-Taking -->
+            <div class="mt-4 overflow-x-auto rounded-xl border border-stone-300">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="bg-[#2D122B] text-amber-50">
+                    <th class="p-2.5 font-bold">Feature / Parameter</th>
+                    <th class="p-2.5 font-bold text-orange-300">Classical Wave Theory Prediction</th>
+                    <th class="p-2.5 font-bold text-teal-300">Actual Experimental Observation</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-200 bg-[#FAF6F0] text-stone-800">
+                  <tr>
+                    <td class="p-2.5 font-bold text-stone-900">1. Energy Absorption</td>
+                    <td class="p-2.5">Continuous over entire wavefront by all surface electrons</td>
+                    <td class="p-2.5 font-medium text-teal-900">Discrete 1-to-1 packet absorption by single electron</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 font-bold text-stone-900">2. Effect of Intensity on K<sub>max</sub></td>
+                    <td class="p-2.5">K<sub>max</sub> increases with increase in Intensity (I)</td>
+                    <td class="p-2.5 font-medium text-teal-900">K<sub>max</sub> is independent of Intensity; depends linearly on &nu;</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 font-bold text-stone-900">3. Threshold Frequency (&nu;<sub>0</sub>)</td>
+                    <td class="p-2.5">Should NOT exist (high intensity compensates low &nu;)</td>
+                    <td class="p-2.5 font-medium text-teal-900">Strictly exists (&nu; &ge; &nu;<sub>0</sub> required for emission)</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 font-bold text-stone-900">4. Time Taken for Emission</td>
+                    <td class="p-2.5">Hours or more (huge time lag)</td>
+                    <td class="p-2.5 font-medium text-teal-900">Instantaneous (&lt; 10<sup>-9</sup> seconds)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 1 INTERACTIVE SIMULATION ================= -->
+      <div class="rounded-2xl bg-white border-2 border-orange-300 p-5 sm:p-6 shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-5 pb-4 border-b border-stone-200">
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-300 text-xs font-extrabold uppercase tracking-wider">
+              <i class="fa-solid fa-flask-vial mr-1"></i> Interactive Lab #1
+            </span>
+            <h3 class="font-display text-xl font-extrabold text-stone-900 mt-1">
+              Wave Theory Prediction vs. Actual Experimental Reality Simulator
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600">
+              Switch between <strong>Classical Wave Hypothesis</strong> and <strong>Actual Experiment</strong> below. Set Frequency below Threshold (<span class="font-mono">&nu; &lt; &nu;<sub>0</sub></span>) and increase Intensity to see the exact contradiction!
+            </p>
+          </div>
+
+          <!-- Mode Switcher Buttons -->
+          <div class="flex items-center gap-2 bg-[#F5EFE6] p-1.5 rounded-xl border border-stone-300 shrink-0">
+            <button onclick="setSim1Mode('wave')" id="sim1-btn-wave" class="px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-orange-600 text-white shadow">
+              <i class="fa-solid fa-water"></i> Classical Wave Theory (Wrong)
+            </button>
+            <button onclick="setSim1Mode('quantum')" id="sim1-btn-quantum" class="px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-stone-700 hover:text-stone-950">
+              <i class="fa-solid fa-bolt"></i> Experimental Reality (Actual)
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Controls & Live Readouts (4 cols) -->
+          <div class="lg:col-span-4 space-y-4 bg-[#FAF6F0] p-4 rounded-xl border border-[#E2D5C1]">
+            <!-- Target Metal Info -->
+            <div class="flex items-center justify-between text-xs bg-white px-3 py-2 rounded-lg border border-stone-300 shadow-sm">
+              <span class="text-stone-600">Metal Surface: <strong class="text-stone-900">Sodium (Na)</strong></span>
+              <span class="font-mono font-bold text-teal-700">&phi;<sub>0</sub> = 2.75 eV (&nu;<sub>0</sub> = 6.65 &times; 10<sup>14</sup> Hz)</span>
+            </div>
+
+            <!-- Frequency Slider -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1.5">
+                <label for="sim1-freq" class="text-stone-700">Incident Frequency (&nu;):</label>
+                <span id="sim1-freq-val" class="font-mono text-orange-700 font-bold">4.50 &times; 10<sup>14</sup> Hz</span>
+              </div>
+              <input type="range" id="sim1-freq" min="3.5" max="10.0" step="0.25" value="4.5" oninput="updateSim1Controls()" class="w-full" />
+              <div class="flex justify-between text-[10px] text-stone-500 mt-1 font-mono font-semibold">
+                <span>3.5 (IR/Red)</span>
+                <span class="text-rose-600">&uarr; &nu;<sub>0</sub> = 6.65</span>
+                <span>10.0 (UV)</span>
+              </div>
+            </div>
+
+            <!-- Intensity Slider -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1.5">
+                <label for="sim1-intensity" class="text-stone-700">Beam Intensity (I):</label>
+                <span id="sim1-intensity-val" class="font-mono text-amber-700 font-bold">80% (High Intensity)</span>
+              </div>
+              <input type="range" id="sim1-intensity" min="10" max="100" step="10" value="80" oninput="updateSim1Controls()" class="w-full" />
+            </div>
+
+            <!-- Dynamic Comparison Status Box -->
+            <div id="sim1-status-box" class="p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-xs space-y-1.5 text-stone-800">
+              <!-- Populated by JS -->
+            </div>
+
+            <!-- Reset / Soak Timer Button -->
+            <button onclick="resetSim1()" class="w-full py-2 rounded-lg bg-[#2D122B] hover:bg-[#3f1b3c] text-amber-100 text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-rotate-right"></i> Reset Surface Electrons &amp; Timer
+            </button>
+          </div>
+
+          <!-- Canvas Area (8 cols) -->
+          <div class="lg:col-span-8">
+            <div class="relative rounded-xl overflow-hidden border-2 border-[#3B1334] bg-[#1C0D1A] shadow-inner">
+              <canvas id="canvas-sim1" class="h-[340px] w-full"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 2: 11.6 EINSTEIN'S PHOTOELECTRIC EQUATION: ENERGY QUANTUM
+    ====================================================================== -->
+    <section id="tab2" class="tab-pane space-y-6">
+      <!-- Section Banner -->
+      <div class="rounded-2xl bg-gradient-to-r from-[#F9F0FF] via-[#F2E2FF] to-[#FCF7FF] border-2 border-purple-300 p-5 sm:p-6 shadow-md">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-700 text-white text-xs font-bold mb-2 shadow-sm">
+              <i class="fa-solid fa-burst"></i> NCERT SECTION 11.6 (PART 1)
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-stone-900">
+              Einstein's Photoelectric Equation: Energy Quantum of Radiation
+            </h2>
+            <p class="text-stone-700 text-sm mt-1 max-w-3xl font-medium">
+              How Albert Einstein (1905) revolutionized physics by proposing that radiation energy is built of discrete packets called <em>quanta of energy</em> (<span class="font-mono font-bold text-purple-800">h&nu;</span>).
+            </p>
+          </div>
+          <button onclick="copySectionNotes('notes-tab2')" class="self-start md:self-center shrink-0 px-4 py-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold flex items-center gap-2 transition shadow-sm">
+            <i class="fa-regular fa-copy"></i> Copy Concise Notes
+          </button>
+        </div>
+      </div>
+
+      <!-- Concise Notes & Diagrammatic Representation -->
+      <div id="notes-tab2" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left 7 Cols: Concise Bullet Points & Equation Breakdown -->
+        <div class="lg:col-span-7 space-y-5">
+          <!-- Card 1: Energy Quantum Concept -->
+          <div class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-5 shadow-md">
+            <h3 class="font-display text-base font-extrabold text-purple-800 flex items-center gap-2 mb-3 pb-2 border-b border-stone-200">
+              <i class="fa-solid fa-cubes-stacked text-purple-600"></i> 1. Concept of Energy Quantum of Radiation (1905)
+            </h3>
+            <ul class="space-y-2.5 text-sm text-stone-700">
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-700 font-bold">▸</span>
+                <span><strong class="text-stone-900">Discrete Energy Packets:</strong> Photoelectric emission does <em>not</em> occur by continuous absorption of energy. Radiation energy is built up of discrete units called <strong>quanta of energy of radiation</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-700 font-bold">▸</span>
+                <span><strong class="text-stone-900">Energy of Each Quantum:</strong> Each quantum of radiant energy carries energy <span class="font-mono text-orange-700 font-bold">E = h&nu;</span>, where:
+                  <br><span class="text-xs text-stone-600">• <span class="font-mono font-bold text-stone-900">h</span> = Planck's constant (<span class="font-mono">6.626 &times; 10<sup>-34</sup> J s</span>) &nbsp;|&nbsp; • <span class="font-mono font-bold text-stone-900">&nu;</span> = Frequency of incident light</span>
+                </span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-700 font-bold">▸</span>
+                <span><strong class="text-stone-900">One-to-One Elementary Process:</strong> In photoelectric effect, <strong>one electron absorbs one single quantum of energy (<span class="font-mono">h&nu;</span>)</strong> completely at an instant.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-purple-700 font-bold">▸</span>
+                <span><strong class="text-stone-900">Role of Work Function (<span class="font-mono">&phi;<sub>0</sub></span>):</strong> If the absorbed quantum energy (<span class="font-mono">h&nu;</span>) exceeds the minimum escape energy needed (work function <span class="font-mono">&phi;<sub>0</sub></span>), the electron is emitted immediately.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Einstein's Photoelectric Equation Box -->
+          <div class="rounded-2xl bg-gradient-to-br from-[#FFF9F2] via-white to-[#FDF4FF] border-2 border-orange-400 p-5 shadow-md glow-card">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-purple-800">NCERT Equation (11.2)</span>
+              <span class="px-2.5 py-0.5 rounded bg-orange-100 text-orange-800 border border-orange-300 font-mono text-xs font-bold">Most Important Formula</span>
+            </div>
+
+            <div class="my-3 py-4 px-6 rounded-xl bg-[#260B21] border-2 border-amber-400/50 text-center shadow-inner">
+              <p class="font-mono text-2xl sm:text-3xl font-extrabold text-amber-300 tracking-wide">
+                K<sub>max</sub> = h&nu; &minus; &phi;<sub>0</sub>
+              </p>
+              <p class="text-xs text-amber-100/90 mt-1.5">
+                Maximum Kinetic Energy = (Energy of Incident Quantum) &minus; (Work Function of Metal)
+              </p>
+            </div>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-stone-700 mt-3">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 font-bold">▸</span>
+                <span><strong class="text-stone-900">Why <span class="font-mono">K<sub>max</sub></span>?</strong> <span class="font-mono">K<sub>max</sub></span> is the kinetic energy of the <em>most loosely bound surface electrons</em> that escape without internal collision losses.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 font-bold">▸</span>
+                <span><strong class="text-stone-900">Tightly Bound Electrons:</strong> Deeper or more tightly bound electrons lose extra energy before escaping and emerge with kinetic energies <strong>less than <span class="font-mono">K<sub>max</sub></span></strong> (<span class="font-mono">0 &le; K &le; K<sub>max</sub></span>).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 font-bold">▸</span>
+                <span><strong class="text-stone-900">Meaning of Intensity in Quantum Picture:</strong> Intensity (<span class="font-mono">I</span>) at a given frequency is determined by the <strong>number of photons incident per second</strong>. Increasing <span class="font-mono">I</span> increases the number of emitted photoelectrons/sec, NOT <span class="font-mono">K<sub>max</sub></span>!</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right 5 Cols: Schematic Diagram & Einstein Bio Box -->
+        <div class="lg:col-span-5 space-y-5">
+          <!-- Interactive SVG Picturization of Quantum Absorption -->
+          <div class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-5 shadow-md">
+            <h3 class="font-display text-sm font-extrabold text-teal-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-diagram-project text-teal-600"></i> Diagrammatic Picturization: Energy Budget
+            </h3>
+
+            <!-- Clean Scientific SVG Diagram -->
+            <div class="bg-[#230E21] rounded-xl p-3 border-2 border-purple-900">
+              <svg viewBox="0 0 420 230" class="w-full h-auto">
+                <!-- Metal Surface Block -->
+                <rect x="20" y="135" width="380" height="80" rx="8" fill="#3D1C0A" stroke="#D97706" stroke-width="1.5"/>
+                <line x1="20" y1="135" x2="400" y2="135" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="6,4"/>
+                <text x="30" y="155" fill="#FDE68A" font-size="11" font-family="Inter" font-weight="bold">METAL POTENTIAL WELL (Copper/Sodium Lattice)</text>
+
+                <!-- Surface Electron (Loosely bound) -->
+                <circle cx="145" cy="145" r="10" fill="#2DD4BF"/>
+                <text x="140" y="149" fill="#042F2E" font-size="11" font-weight="bold">e⁻</text>
+                <text x="105" y="172" fill="#FED7AA" font-size="10">Surface Electron (Losses = &phi;₀)</text>
+
+                <!-- Deep Electron (Tightly bound) -->
+                <circle cx="310" cy="190" r="10" fill="#FB7185"/>
+                <text x="305" y="194" fill="#4C0519" font-size="11" font-weight="bold">e⁻</text>
+                <text x="255" y="210" fill="#FECDD3" font-size="10">Tightly Bound (K &lt; Kₘₐₓ)</text>
+
+                <!-- Incoming Photon Packet -->
+                <g>
+                  <line x1="45" y1="35" x2="132" y2="132" stroke="#FBBF24" stroke-width="3" stroke-dasharray="5,3"/>
+                  <circle cx="85" cy="80" r="16" fill="#F59E0B" fill-opacity="0.3" stroke="#FBBF24" stroke-width="2"/>
+                  <text x="75" y="84" fill="#FEF08A" font-size="11" font-family="JetBrains Mono" font-weight="bold">h&nu;</text>
+                  <text x="25" y="25" fill="#FDE047" font-size="11" font-weight="bold">1. Incident Quantum (E = h&nu;)</text>
+                </g>
+
+                <!-- Work Function Barrier Arrow -->
+                <g>
+                  <rect x="165" y="95" width="75" height="36" rx="6" fill="#F43F5E" fill-opacity="0.25" stroke="#FB7185"/>
+                  <text x="173" y="111" fill="#FECDD3" font-size="10" font-weight="bold">2. Escape Tax</text>
+                  <text x="178" y="124" fill="#FFFFFF" font-size="11" font-family="JetBrains Mono" font-weight="bold">Work (&phi;₀)</text>
+                </g>
+
+                <!-- Emitted Photoelectron Arrow -->
+                <g>
+                  <line x1="152" y1="135" x2="255" y2="35" stroke="#2DD4BF" stroke-width="3"/>
+                  <polygon points="255,35 244,39 251,46" fill="#2DD4BF"/>
+                  <circle cx="235" cy="55" r="11" fill="#2DD4BF"/>
+                  <text x="230" y="59" fill="#042F2E" font-size="11" font-weight="bold">e⁻</text>
+                  <text x="245" y="26" fill="#5EEAD4" font-size="11" font-weight="bold">3. Escapes with Kₘₐₓ = h&nu; &minus; &phi;₀</text>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Albert Einstein NCERT Bio Highlight Box -->
+            <div class="mt-4 rounded-xl bg-[#FDF8EE] border border-amber-300 p-3.5 text-xs space-y-1.5 text-stone-800">
+              <div class="flex items-center justify-between">
+                <span class="font-extrabold text-stone-900 text-sm"><i class="fa-solid fa-award text-amber-600 mr-1"></i> Albert Einstein (1879 – 1955)</span>
+                <span class="px-2 py-0.5 rounded bg-amber-200 text-amber-900 font-bold text-[10px]">1921 Nobel Prize</span>
+              </div>
+              <p class="text-stone-800"><strong>1905 Miracle Year (3 Path-Breaking Papers):</strong></p>
+              <ul class="text-stone-700 space-y-1 pl-3 list-disc">
+                <li><strong>Paper 1:</strong> Introduced <em>light quanta</em> (photons) &amp; explained photoelectric effect.</li>
+                <li><strong>Paper 2:</strong> Theory of <em>Brownian motion</em> (convincing evidence of atomic picture of matter).</li>
+                <li><strong>Paper 3:</strong> Special Theory of Relativity (+ General Relativity in 1916, Stimulated Emission &amp; Bose-Einstein Statistics).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 2 INTERACTIVE SIMULATION ================= -->
+      <div class="rounded-2xl bg-white border-2 border-purple-300 p-5 sm:p-6 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5 pb-4 border-b border-stone-200">
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 border border-purple-300 text-xs font-extrabold uppercase tracking-wider">
+              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Interactive Lab #2
+            </span>
+            <h3 class="font-display text-xl font-extrabold text-stone-900 mt-1">
+              Quantum Packet (<span class="font-mono text-purple-700">h&nu;</span>) Absorption &amp; Energy Budget Simulator
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600">
+              Select a target metal, adjust Frequency (<span class="font-mono">&nu;</span>) and Intensity (<span class="font-mono">I</span>), and watch how <span class="font-mono">h&nu;</span> splits into <span class="font-mono">&phi;<sub>0</sub></span> and <span class="font-mono">K<sub>max</sub></span> for surface vs. deeper electrons!
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Controls (4 cols) -->
+          <div class="lg:col-span-4 space-y-4 bg-[#FAF6F0] p-4 rounded-xl border border-[#E2D5C1]">
+            <!-- Metal Selector -->
+            <div>
+              <label class="block text-xs font-bold text-stone-800 mb-1.5">1. Select Target Metal (&phi;<sub>0</sub>):</label>
+              <select id="sim2-metal" onchange="updateSim2()" class="w-full rounded-lg bg-white border border-stone-300 text-stone-900 text-xs font-bold p-2.5 focus:outline-none focus:border-purple-600 shadow-sm">
+                <option value="2.14" data-name="Caesium (Cs)">Caesium (Cs) — &phi;₀ = 2.14 eV (Lowest)</option>
+                <option value="2.30" data-name="Potassium (K)">Potassium (K) — &phi;₀ = 2.30 eV</option>
+                <option value="2.75" data-name="Sodium (Na)" selected>Sodium (Na) — &phi;₀ = 2.75 eV</option>
+                <option value="4.30" data-name="Zinc (Zn)">Zinc (Zn) — &phi;₀ = 4.30 eV (UV Needed)</option>
+                <option value="5.65" data-name="Platinum (Pt)">Platinum (Pt) — &phi;₀ = 5.65 eV (Deep UV)</option>
+              </select>
+            </div>
+
+            <!-- Frequency Slider -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-stone-700">2. Incident Frequency (&nu;):</span>
+                <span id="sim2-freq-label" class="font-mono text-purple-800 font-bold">8.00 &times; 10<sup>14</sup> Hz</span>
+              </div>
+              <input type="range" id="sim2-freq" min="3.5" max="15.0" step="0.25" value="8.0" oninput="updateSim2()" class="w-full" />
+            </div>
+
+            <!-- Intensity Slider -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-stone-700">3. Intensity (Photons/sec):</span>
+                <span id="sim2-int-label" class="font-mono text-orange-700 font-bold">50 Photons/s</span>
+              </div>
+              <input type="range" id="sim2-int" min="10" max="100" step="10" value="50" oninput="updateSim2()" class="w-full" />
+            </div>
+
+            <!-- Live Energy Bar Meter -->
+            <div class="p-3.5 rounded-xl bg-white border border-stone-300 space-y-2.5 text-xs shadow-sm">
+              <div class="flex justify-between items-center">
+                <span class="text-stone-600">Quantum Energy (<span class="font-mono">E = h&nu;</span>):</span>
+                <span id="sim2-ehv" class="font-mono font-bold text-orange-700">3.31 eV</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-stone-600">Work Function (<span class="font-mono">&phi;<sub>0</sub></span>):</span>
+                <span id="sim2-phi" class="font-mono font-bold text-rose-700">2.75 eV</span>
+              </div>
+              <div class="pt-2 border-t border-stone-200 flex justify-between items-center">
+                <span class="text-stone-900 font-bold">Max K.E. (<span class="font-mono">K<sub>max</sub> = h&nu; &minus; &phi;<sub>0</sub></span>):</span>
+                <span id="sim2-kmax" class="font-mono font-extrabold text-teal-700 text-sm">0.56 eV</span>
+              </div>
+
+              <!-- Visual Stacked Bar -->
+              <div class="w-full h-4 bg-stone-200 rounded-full overflow-hidden flex border border-stone-300 mt-1">
+                <div id="sim2-bar-phi" class="bg-rose-500 h-full transition-all duration-300" style="width: 70%;" title="Work Function"></div>
+                <div id="sim2-bar-kmax" class="bg-teal-500 h-full transition-all duration-300" style="width: 30%;" title="Max Kinetic Energy"></div>
+              </div>
+              <div class="flex justify-between text-[10px] font-bold">
+                <span class="text-rose-700">■ Work Function (&phi;<sub>0</sub>)</span>
+                <span class="text-teal-700">■ Remaining K<sub>max</sub></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Area (8 cols) -->
+          <div class="lg:col-span-8">
+            <div class="relative rounded-xl overflow-hidden border-2 border-[#3B1334] bg-[#1C0D1A]">
+              <canvas id="canvas-sim2" class="h-[340px] w-full"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 3: DERIVATIONS, STOPPING POTENTIAL (V₀) & MILLIKAN'S VERIFICATION
+    ====================================================================== -->
+    <section id="tab3" class="tab-pane space-y-6">
+      <!-- Section Banner -->
+      <div class="rounded-2xl bg-gradient-to-r from-[#E6FFFA] via-[#CCFBF1] to-[#F0FDFA] border-2 border-teal-400 p-5 sm:p-6 shadow-md">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-700 text-white text-xs font-bold mb-2 shadow-sm">
+              <i class="fa-solid fa-square-root-variable"></i> NCERT SECTION 11.6 (PART 2 — DERIVATIONS &amp; GRAPHS)
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-stone-900">
+              Derivations, Stopping Potential (<span class="font-mono text-teal-800">V<sub>0</sub></span>) &amp; Millikan's Proof
+            </h2>
+            <p class="text-stone-700 text-sm mt-1 max-w-3xl font-medium">
+              Complete step-by-step derivations of Equations (11.2), (11.3), and (11.4), how Einstein's equation explains all experimental laws, and Millikan's historic determination of <span class="font-mono">h</span>.
+            </p>
+          </div>
+          <button onclick="copySectionNotes('notes-tab3')" class="self-start md:self-center shrink-0 px-4 py-2.5 rounded-xl bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold flex items-center gap-2 transition shadow-sm">
+            <i class="fa-regular fa-copy"></i> Copy Derivations
+          </button>
+        </div>
+      </div>
+
+      <!-- Step-by-Step Derivations Grid -->
+      <div id="notes-tab3" class="space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <!-- Derivation Card 1: Eq 11.2 & 11.3 -->
+          <div class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-5 shadow-md flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-orange-100 text-orange-800 font-mono text-xs font-bold">Derivation 1</span>
+                <span class="text-xs text-stone-500 font-mono font-bold">Eq. (11.2) &amp; (11.3)</span>
+              </div>
+              <h3 class="font-display font-extrabold text-stone-900 text-base mb-3">
+                Threshold Frequency (<span class="font-mono">&nu;<sub>0</sub></span>) &amp; Alternate Forms
+              </h3>
+
+              <div class="space-y-2.5 text-xs sm:text-sm text-stone-700">
+                <p><strong>Step 1:</strong> By conservation of energy for a surface electron:</p>
+                <div class="p-2.5 rounded-lg bg-[#FAF5EC] border border-orange-300 font-mono text-center text-orange-800 font-bold">
+                  K<sub>max</sub> = h&nu; &minus; &phi;<sub>0</sub> &nbsp;&nbsp;--- (11.2)
+                </div>
+
+                <p><strong>Step 2:</strong> Since kinetic energy <span class="font-mono">K<sub>max</sub></span> must be non-negative (<span class="font-mono">K<sub>max</sub> &ge; 0</span>), photoelectric emission is possible <em>only if</em>:</p>
+                <div class="p-2.5 rounded-lg bg-[#FAF5EC] border border-stone-300 font-mono text-center text-purple-900 font-bold">
+                  h&nu; &gt; &phi;<sub>0</sub> &nbsp;or&nbsp; &nu; &gt; &nu;<sub>0</sub>
+                </div>
+
+                <p><strong>Step 3:</strong> At threshold frequency (<span class="font-mono">&nu; = &nu;<sub>0</sub></span>), <span class="font-mono">K<sub>max</sub> = 0</span>:</p>
+                <div class="p-2.5 rounded-lg bg-teal-50 border border-teal-400 font-mono text-center text-teal-900 font-bold">
+                  &nu;<sub>0</sub> = <span class="math-frac"><span>&phi;<sub>0</sub></span><span>h</span></span> &rArr; &phi;<sub>0</sub> = h&nu;<sub>0</sub> &nbsp;--- (11.3)
+                </div>
+
+                <p><strong>Step 4:</strong> Substituting <span class="font-mono">&phi;<sub>0</sub> = h&nu;<sub>0</sub></span> in Eq. (11.2):</p>
+                <div class="p-2.5 rounded-lg bg-[#260B21] border border-amber-400/40 font-mono text-center text-amber-300 font-bold">
+                  K<sub>max</sub> = h(&nu; &minus; &nu;<sub>0</sub>) = hc<span class="math-frac"><span>1</span><span>&lambda;</span></span> &minus; hc<span class="math-frac"><span>1</span><span>&lambda;<sub>0</sub></span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Derivation Card 2: Stopping Potential Eq 11.4 -->
+          <div class="rounded-2xl bg-white border-2 border-teal-500 p-5 shadow-md flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-teal-100 text-teal-800 font-mono text-xs font-bold">Derivation 2</span>
+                <span class="text-xs text-teal-700 font-mono font-bold">Eq. (11.4) • Board Favorite</span>
+              </div>
+              <h3 class="font-display font-extrabold text-stone-900 text-base mb-3">
+                Stopping Potential (<span class="font-mono">V<sub>0</sub></span>) &amp; Straight-Line Relation
+              </h3>
+
+              <div class="space-y-2.5 text-xs sm:text-sm text-stone-700">
+                <p><strong>Step 1:</strong> Stopping potential (<span class="font-mono">V<sub>0</sub></span>) is related to <span class="font-mono">K<sub>max</sub></span> by Eq. (11.1):</p>
+                <div class="p-2.5 rounded-lg bg-[#FAF5EC] border border-stone-300 font-mono text-center text-teal-800 font-bold">
+                  K<sub>max</sub> = eV<sub>0</sub>
+                </div>
+
+                <p><strong>Step 2:</strong> Substitute <span class="font-mono">K<sub>max</sub> = eV<sub>0</sub></span> into Einstein's Eq. (11.2) for <span class="font-mono">&nu; &ge; &nu;<sub>0</sub></span>:</p>
+                <div class="p-2.5 rounded-lg bg-[#FAF5EC] border border-stone-300 font-mono text-center text-orange-800 font-bold">
+                  eV<sub>0</sub> = h&nu; &minus; &phi;<sub>0</sub>
+                </div>
+
+                <p><strong>Step 3:</strong> Divide both sides by elementary charge (<span class="font-mono">e</span>):</p>
+                <div class="p-2.5 rounded-lg bg-[#260B21] border border-teal-400 font-mono text-center text-teal-300 text-base font-extrabold">
+                  V<sub>0</sub> = <left>(</left><span class="math-frac"><span>h</span><span>e</span></span><right>)</right>&nu; &minus; <span class="math-frac"><span>&phi;<sub>0</sub></span><span>e</span></span> &nbsp;--- (11.4)
+                </div>
+
+                <p><strong>Step 4:</strong> Compare with straight line <span class="font-mono font-bold text-stone-900">y = mx + c</span>:</p>
+                <ul class="space-y-1 text-xs bg-[#FAF6F0] p-2.5 rounded-lg border border-stone-300 font-mono text-stone-800">
+                  <li>• <strong>Graph:</strong> <span class="text-teal-800 font-bold">V<sub>0</sub> vs &nu;</span> is a straight line</li>
+                  <li>• <strong>Slope (m):</strong> <span class="text-orange-700 font-bold">h / e</span> (Universal — independent of metal!)</li>
+                  <li>• <strong>Y-intercept (c):</strong> <span class="text-rose-700 font-bold">&minus;&phi;<sub>0</sub> / e</span></li>
+                  <li>• <strong>X-intercept:</strong> <span class="text-purple-800 font-bold">&nu;<sub>0</sub> = &phi;<sub>0</sub> / h</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Millikan's Verification & 4 Points Explanation -->
+          <div class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-5 shadow-md flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded bg-purple-100 text-purple-800 font-mono text-xs font-bold">Experimental Proof</span>
+                <span class="text-xs text-stone-500 font-mono font-bold">Millikan (1906–1916)</span>
+              </div>
+              <h3 class="font-display font-extrabold text-stone-900 text-base mb-3">
+                How Eq. (11.2) Explains Observations &amp; Millikan's Test
+              </h3>
+
+              <ul class="space-y-2 text-xs text-stone-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-700 font-extrabold">1.</span>
+                  <span><strong class="text-stone-900">Linear <span class="font-mono">K<sub>max</sub></span> vs <span class="font-mono">&nu;</span>:</strong> Single electron absorbs single quantum (<span class="font-mono">h&nu;</span>). Hence <span class="font-mono">K<sub>max</sub> &propto; &nu;</span> and is independent of intensity.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-700 font-extrabold">2.</span>
+                  <span><strong class="text-stone-900">Threshold Frequency (<span class="font-mono">&nu;<sub>0</sub></span>):</strong> Greater <span class="font-mono">&phi;<sub>0</sub></span> &rArr; higher <span class="font-mono">&nu;<sub>0</sub> (= &phi;<sub>0</sub>/h)</span>. Below <span class="font-mono">&nu;<sub>0</sub></span>, no emission occurs.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-700 font-extrabold">3.</span>
+                  <span><strong class="text-stone-900">Current &propto; Intensity:</strong> Intensity &propto; number of energy quanta/area/sec &rArr; more electrons absorb quanta &rArr; higher current (for <span class="font-mono">&nu; &gt; &nu;<sub>0</sub></span>).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-teal-700 font-extrabold">4.</span>
+                  <span><strong class="text-stone-900">Instantaneous Emission:</strong> Elementary process is 1-quantum to 1-electron absorption &rArr; instantaneous even at low intensity!</span>
+                </li>
+              </ul>
+
+              <div class="mt-3 p-3 rounded-xl bg-purple-50 border border-purple-300 text-xs text-stone-800 space-y-1">
+                <p class="font-extrabold text-purple-900"><i class="fa-solid fa-microscope mr-1"></i> Millikan's Verification (1906–1916):</p>
+                <p>Aimed at <em>disproving</em> Einstein's equation, R.A. Millikan measured the slope (<span class="font-mono">h/e</span>) of the <span class="font-mono">V<sub>0</sub></span> vs <span class="font-mono">&nu;</span> line for alkali metals (Sodium, etc.). Using known <span class="font-mono">e</span>, he found <span class="font-mono text-purple-950 font-bold">h &approx; 6.626 &times; 10<sup>-34</sup> J s</span>, proving Einstein right! (Nobel Prize 1923).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 3 INTERACTIVE SIMULATION ================= -->
+      <div class="rounded-2xl bg-white border-2 border-teal-400 p-5 sm:p-6 shadow-xl">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5 pb-4 border-b border-stone-200">
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full bg-teal-100 text-teal-800 border border-teal-300 text-xs font-extrabold uppercase tracking-wider">
+              <i class="fa-solid fa-chart-line mr-1"></i> Interactive Lab #3
+            </span>
+            <h3 class="font-display text-xl font-extrabold text-stone-900 mt-1">
+              Millikan's Stopping Potential (<span class="font-mono text-teal-700">V<sub>0</sub></span> vs <span class="font-mono text-orange-600">&nu;</span>) &amp; Slope (<span class="font-mono">h/e</span>) Graph Explorer
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600">
+              Compare three metals simultaneously! Notice how all straight lines are <strong>parallel</strong> with the exact same universal slope <span class="font-mono">m = h/e = 4.136 &times; 10<sup>-15</sup> V s</span>.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Controls & Live Readouts (4 cols) -->
+          <div class="lg:col-span-4 space-y-4 bg-[#FAF6F0] p-4 rounded-xl border border-[#E2D5C1]">
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-stone-700">Incident Frequency (&nu;):</span>
+                <span id="sim3-freq-val" class="font-mono text-teal-800 font-bold">9.00 &times; 10<sup>14</sup> Hz</span>
+              </div>
+              <input type="range" id="sim3-freq" min="4.0" max="14.0" step="0.25" value="9.0" oninput="updateSim3()" class="w-full" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-stone-700">Applied Retarding Potential (V):</span>
+                <span id="sim3-ret-val" class="font-mono text-orange-700 font-bold">-1.00 V</span>
+              </div>
+              <input type="range" id="sim3-ret" min="-4.0" max="0.0" step="0.05" value="-1.0" oninput="updateSim3()" class="w-full" />
+              <div class="flex justify-between items-center mt-1.5">
+                <button onclick="autoMatchStoppingPotential()" class="w-full py-1.5 px-3 rounded-lg bg-teal-700 hover:bg-teal-800 text-white text-xs font-bold transition shadow-sm">
+                  <i class="fa-solid fa-crosshairs mr-1"></i> Auto-Set V = &minus;V<sub>0</sub> (Sodium)
+                </button>
+              </div>
+            </div>
+
+            <!-- Readout Card for Sodium vs Caesium -->
+            <div class="p-3.5 rounded-xl bg-white border border-stone-300 space-y-2 text-xs shadow-sm">
+              <div class="font-bold text-stone-900 border-b border-stone-200 pb-1.5 flex justify-between">
+                <span>Live Millikan Data</span>
+                <span class="font-mono text-orange-700">Slope h/e = 4.14&times;10⁻¹⁵ V·s</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-orange-700 font-bold">● Sodium (&phi;₀ = 2.75 eV):</span>
+                <span id="sim3-na-v0" class="font-mono font-bold text-stone-900">V₀ = 0.97 V</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-teal-700 font-bold">● Caesium (&phi;₀ = 2.14 eV):</span>
+                <span id="sim3-cs-v0" class="font-mono font-bold text-stone-900">V₀ = 1.58 V</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-purple-700 font-bold">● Zinc (&phi;₀ = 4.30 eV):</span>
+                <span id="sim3-zn-v0" class="font-mono font-bold text-stone-900">Below &nu;₀</span>
+              </div>
+              <div class="pt-1.5 border-t border-stone-200 text-[11px] text-stone-700" id="sim3-chamber-status">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Area (8 cols) -->
+          <div class="lg:col-span-8">
+            <div class="relative rounded-xl overflow-hidden border-2 border-[#3B1334] bg-[#1C0D1A]">
+              <canvas id="canvas-sim3" class="h-[350px] w-full"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 4: 11.7 PARTICLE NATURE OF LIGHT: THE PHOTON
+    ====================================================================== -->
+    <section id="tab4" class="tab-pane space-y-6">
+      <!-- Section Banner -->
+      <div class="rounded-2xl bg-gradient-to-r from-[#FFFBEB] via-[#FEF3C7] to-[#FFFBEB] border-2 border-amber-400 p-5 sm:p-6 shadow-md">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-600 text-white text-xs font-bold mb-2 shadow-sm">
+              <i class="fa-solid fa-sun"></i> NCERT SECTION 11.7
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-stone-900">
+              Particle Nature of Light: The Photon
+            </h2>
+            <p class="text-stone-700 text-sm mt-1 max-w-3xl font-medium">
+              Complete specifications, Compton scattering confirmation, and the 5-Point NCERT Summary of the Photon Picture of Electromagnetic Radiation.
+            </p>
+          </div>
+          <button onclick="copySectionNotes('notes-tab4')" class="self-start md:self-center shrink-0 px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold flex items-center gap-2 transition shadow-sm">
+            <i class="fa-regular fa-copy"></i> Copy 5-Point Summary
+          </button>
+        </div>
+      </div>
+
+      <!-- Photon Specifications & 5-Point Summary -->
+      <div id="notes-tab4" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left 4 Cols: What is a Photon & Historical Milestones -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-5 shadow-md h-full flex flex-col justify-between">
+            <div>
+              <h3 class="font-display text-base font-extrabold text-amber-800 flex items-center gap-2 mb-3 pb-2 border-b border-stone-200">
+                <i class="fa-solid fa-atom text-amber-600"></i> What is a Photon? (Key Specs)
+              </h3>
+              <ul class="space-y-2.5 text-xs sm:text-sm text-stone-700">
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold">▸</span>
+                  <span><strong class="text-stone-900">Evidence from Photoelectric Effect:</strong> Light in interaction with matter behaves as if made of quanta or packets of energy (<span class="font-mono font-bold text-orange-700">h&nu;</span>).</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold">▸</span>
+                  <span><strong class="text-stone-900">Energy &amp; Momentum Association:</strong> Einstein showed that the light quantum also carries a definite momentum <span class="font-mono text-teal-800 font-bold">p = h&nu;/c = h/&lambda;</span>.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold">▸</span>
+                  <span><strong class="text-stone-900">Why a Particle?</strong> Having a definite value of both <em>Energy (<span class="font-mono">E</span>)</em> and <em>Momentum (<span class="font-mono">p</span>)</em> is a strong sign that the light quantum is a particle — later named <strong>Photon</strong>.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-amber-600 font-bold">▸</span>
+                  <span><strong class="text-stone-900">Compton Effect (1924):</strong> Particle-like behaviour of light was further confirmed by <strong>A.H. Compton (1892–1962)</strong> on scattering of X-rays from electrons.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Nobel Prize Timeline Box -->
+            <div class="mt-4 p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-xs space-y-1.5 text-stone-800">
+              <div class="font-extrabold text-amber-900 uppercase tracking-wider"><i class="fa-solid fa-medal mr-1"></i> Key Historical Milestones</div>
+              <p>• <strong>1921:</strong> Einstein awarded Nobel Prize in Physics for theoretical physics &amp; photoelectric effect.</p>
+              <p>• <strong>1923:</strong> Millikan awarded Nobel Prize for elementary charge (<span class="font-mono">e</span>) &amp; photoelectric effect.</p>
+              <p>• <strong>1924:</strong> A.H. Compton confirms photon momentum via X-ray scattering.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 8 Cols: The 5 Official NCERT Points of the Photon Picture -->
+        <div class="lg:col-span-8">
+          <div class="rounded-2xl bg-white border-2 border-amber-400 p-5 shadow-md h-full">
+            <div class="flex items-center justify-between flex-wrap gap-2 mb-4 pb-2 border-b border-stone-200">
+              <h3 class="font-display text-base sm:text-lg font-extrabold text-stone-900 flex items-center gap-2">
+                <i class="fa-solid fa-list-check text-orange-600"></i>
+                Summary of the Photon Picture of Electromagnetic Radiation (NCERT 5 Points)
+              </h3>
+              <span class="px-2.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold">Direct 3/5-Mark Board Question</span>
+            </div>
+
+            <div class="space-y-3">
+              <!-- Point (i) -->
+              <div class="p-3.5 rounded-xl bg-[#FAF6F0] border border-stone-300 flex items-start gap-3.5 hover:border-orange-500 transition">
+                <span class="px-2.5 py-1 rounded-lg bg-orange-600 text-white font-mono text-xs font-extrabold shrink-0">(i)</span>
+                <div class="text-xs sm:text-sm text-stone-800">
+                  <strong class="text-orange-800">Particle Behaviour in Interaction:</strong> In interaction of radiation with matter, radiation behaves as if it is made up of discrete particles called <strong>photons</strong>.
+                </div>
+              </div>
+
+              <!-- Point (ii) -->
+              <div class="p-3.5 rounded-xl bg-[#FAF6F0] border border-stone-300 flex items-start gap-3.5 hover:border-orange-500 transition">
+                <span class="px-2.5 py-1 rounded-lg bg-orange-600 text-white font-mono text-xs font-extrabold shrink-0">(ii)</span>
+                <div class="text-xs sm:text-sm text-stone-800">
+                  <strong class="text-orange-800">Energy, Momentum &amp; Speed:</strong> Each photon has:
+                  <div class="mt-1.5 flex flex-wrap gap-2 font-mono text-xs">
+                    <span class="px-2.5 py-1 rounded bg-white border border-orange-300 text-orange-800 font-bold">Energy: E = h&nu; = hc/&lambda;</span>
+                    <span class="px-2.5 py-1 rounded bg-white border border-teal-300 text-teal-800 font-bold">Momentum: p = h&nu;/c = h/&lambda;</span>
+                    <span class="px-2.5 py-1 rounded bg-white border border-purple-300 text-purple-800 font-bold">Speed: c = 3 &times; 10<sup>8</sup> m/s</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Point (iii) -->
+              <div class="p-3.5 rounded-xl bg-[#FAF6F0] border border-stone-300 flex items-start gap-3.5 hover:border-orange-500 transition">
+                <span class="px-2.5 py-1 rounded-lg bg-orange-600 text-white font-mono text-xs font-extrabold shrink-0">(iii)</span>
+                <div class="text-xs sm:text-sm text-stone-800">
+                  <strong class="text-orange-800">Photon Energy is Independent of Intensity:</strong> All photons of light of a particular frequency <span class="font-mono">&nu;</span> (or wavelength <span class="font-mono">&lambda;</span>) have the <strong>exact same energy <span class="font-mono">E</span> and momentum <span class="font-mono">p</span></strong>, whatever the intensity may be. Increasing intensity at a given <span class="font-mono">&lambda;</span> only increases the <strong>number of photons per second</strong> crossing a given area, with each photon having the same energy.
+                </div>
+              </div>
+
+              <!-- Point (iv) -->
+              <div class="p-3.5 rounded-xl bg-[#FAF6F0] border border-stone-300 flex items-start gap-3.5 hover:border-orange-500 transition">
+                <span class="px-2.5 py-1 rounded-lg bg-orange-600 text-white font-mono text-xs font-extrabold shrink-0">(iv)</span>
+                <div class="text-xs sm:text-sm text-stone-800">
+                  <strong class="text-orange-800">Electrically Neutral &amp; Undeflected:</strong> Photons are <strong>electrically neutral (<span class="font-mono">q = 0</span>)</strong> and are <strong>NOT deflected</strong> by electric (<span class="font-mono">E</span>) or magnetic (<span class="font-mono">B</span>) fields.
+                </div>
+              </div>
+
+              <!-- Point (v) -->
+              <div class="p-3.5 rounded-xl bg-[#FAF6F0] border border-stone-300 flex items-start gap-3.5 hover:border-orange-500 transition">
+                <span class="px-2.5 py-1 rounded-lg bg-orange-600 text-white font-mono text-xs font-extrabold shrink-0">(v)</span>
+                <div class="text-xs sm:text-sm text-stone-800">
+                  <strong class="text-orange-800">Conservation in Photon-Particle Collisions:</strong> In a photon-particle collision (such as photon-electron collision), <strong>total energy and total momentum are conserved</strong>. However, the <strong>number of photons may NOT be conserved</strong> — a photon may be absorbed or a new photon may be created.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TAB 4 INTERACTIVE SIMULATION ================= -->
+      <div class="rounded-2xl bg-white border-2 border-amber-400 p-5 sm:p-6 shadow-xl">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-5 pb-4 border-b border-stone-200">
+          <div>
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-extrabold uppercase tracking-wider">
+              <i class="fa-solid fa-atom mr-1"></i> Interactive Lab #4
+            </span>
+            <h3 class="font-display text-xl font-extrabold text-stone-900 mt-1">
+              The Photon Properties &amp; Collision Interactive Sandbox
+            </h3>
+            <p class="text-xs sm:text-sm text-stone-600">
+              Explore all 5 NCERT Photon Properties interactively: test Electric/Magnetic deflection, Photon Flux vs. Wavelength, and Compton Collision!
+            </p>
+          </div>
+
+          <!-- 3 Sub-Modes for Photon Sandbox -->
+          <div class="flex flex-wrap items-center gap-1.5 bg-[#FAF6F0] p-1.5 rounded-xl border border-stone-300 shrink-0">
+            <button onclick="setSim4Mode('flux')" id="sim4-btn-flux" class="px-3 py-1.5 rounded-lg text-xs font-bold transition bg-orange-600 text-white shadow">
+              1. Flux, E &amp; p (Points ii &amp; iii)
+            </button>
+            <button onclick="setSim4Mode('field')" id="sim4-btn-field" class="px-3 py-1.5 rounded-lg text-xs font-bold transition text-stone-700 hover:text-stone-950">
+              2. E/B Field Test (Point iv)
+            </button>
+            <button onclick="setSim4Mode('compton')" id="sim4-btn-compton" class="px-3 py-1.5 rounded-lg text-xs font-bold transition text-stone-700 hover:text-stone-950">
+              3. Photon Collision (Point v)
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Controls & Live Photon Specs (4 cols) -->
+          <div class="lg:col-span-4 space-y-4 bg-[#FAF6F0] p-4 rounded-xl border border-[#E2D5C1]">
+            <!-- Wavelength Slider -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-stone-700">Wavelength (&lambda;):</span>
+                <span id="sim4-wave-val" class="font-mono text-orange-700 font-bold">500 nm (Green)</span>
+              </div>
+              <input type="range" id="sim4-wave" min="200" max="700" step="20" value="500" oninput="updateSim4()" class="w-full" />
+            </div>
+
+            <!-- Beam Power / Intensity Slider -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <span class="text-stone-700">Beam Power / Intensity (P):</span>
+                <span id="sim4-power-val" class="font-mono text-teal-800 font-bold">5.0 mW</span>
+              </div>
+              <input type="range" id="sim4-power" min="1" max="10" step="1" value="5" oninput="updateSim4()" class="w-full" />
+            </div>
+
+            <!-- Calculated Photon Specifications Card -->
+            <div class="p-3.5 rounded-xl bg-white border border-stone-300 space-y-2 text-xs shadow-sm">
+              <div class="font-bold text-orange-800 border-b border-stone-200 pb-1">Live Single-Photon Specs</div>
+              <div class="flex justify-between">
+                <span class="text-stone-600">Frequency (<span class="font-mono">&nu; = c/&lambda;</span>):</span>
+                <span id="sim4-nu" class="font-mono text-stone-900 font-bold">6.00 &times; 10<sup>14</sup> Hz</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-stone-600">Energy (<span class="font-mono">E = hc/&lambda;</span>):</span>
+                <span id="sim4-e" class="font-mono text-teal-700 font-bold">2.48 eV (3.98&times;10⁻¹⁹ J)</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-stone-600">Momentum (<span class="font-mono">p = h/&lambda;</span>):</span>
+                <span id="sim4-p" class="font-mono text-purple-800 font-bold">1.33 &times; 10<sup>-27</sup> kg·m/s</span>
+              </div>
+              <div class="flex justify-between pt-1.5 border-t border-stone-200">
+                <span class="text-stone-800 font-bold">Photons/sec (<span class="font-mono">N = P/E</span>):</span>
+                <span id="sim4-n" class="font-mono text-orange-700 font-extrabold">1.26 &times; 10<sup>16</sup> /s</span>
+              </div>
+            </div>
+
+            <div id="sim4-mode-hint" class="p-3 rounded-lg bg-amber-50 border border-amber-300 text-[11px] text-stone-800">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Canvas Area (8 cols) -->
+          <div class="lg:col-span-8">
+            <div class="relative rounded-xl overflow-hidden border-2 border-[#3B1334] bg-[#1C0D1A]">
+              <canvas id="canvas-sim4" class="h-[340px] w-full"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 5: PRACTICE QUESTIONS (NUMERICALS & CONCEPTUALS)
+    ====================================================================== -->
+    <section id="tab5" class="tab-pane space-y-6">
+      <!-- Banner -->
+      <div class="rounded-2xl bg-gradient-to-r from-[#FFF1F2] via-[#FFE4E6] to-[#FFF1F2] border-2 border-rose-300 p-5 sm:p-6 shadow-md">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-700 text-white text-xs font-bold mb-2 shadow-sm">
+              <i class="fa-solid fa-pen-ruler"></i> NCERT &amp; BOARD EXAM WORKBOOK
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-stone-900">
+              Practice Numericals &amp; Conceptual Questions (6 Solved Problems)
+            </h2>
+            <p class="text-stone-700 text-sm mt-1 font-medium">
+              Test your numerical calculation skills first using the interactive answer checker, then view the complete Board-style step-by-step derivation!
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="toggleAllSolutions(true)" class="px-3.5 py-2 rounded-xl bg-rose-700 hover:bg-rose-800 text-white text-xs font-bold transition shadow-sm">
+              Expand All Solutions
+            </button>
+            <button onclick="toggleAllSolutions(false)" class="px-3.5 py-2 rounded-xl bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 text-xs font-bold transition">
+              Collapse All
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Practice Questions Grid -->
+      <div id="practice-questions-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Populated dynamically by JS for clean interactivity -->
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 6: GAMIFIED QUIZ SESSION (6 MCQs)
+    ====================================================================== -->
+    <section id="tab6" class="tab-pane space-y-6">
+      <!-- Gamified Quiz Header -->
+      <div class="rounded-2xl bg-gradient-to-r from-[#2E1025] via-[#3D1635] to-[#260E1F] border-2 border-amber-400/60 p-5 sm:p-6 shadow-xl text-white">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400 text-stone-950 text-xs font-extrabold mb-2">
+              <i class="fa-solid fa-gamepad"></i> GAMIFIED QUANTUM CHALLENGE
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-amber-50">
+              Quantum Mastery Arena — 6 High-Yield MCQs
+            </h2>
+            <p class="text-amber-100/90 text-sm mt-1">
+              Build your streak, earn Quantum XP, and unlock the <strong>Nobel Laureate Badge</strong> curated by <strong class="text-amber-300">Hrishikesh M (PGT Physics)</strong>!
+            </p>
+          </div>
+
+          <!-- Live HUD Stats -->
+          <div class="flex items-center gap-3 bg-black/35 px-4 py-3 rounded-2xl border border-amber-300/30 shrink-0">
+            <div class="text-center px-2">
+              <div class="text-[10px] uppercase tracking-wider text-amber-200/80 font-bold">Score / XP</div>
+              <div id="quiz-score" class="font-mono text-xl font-extrabold text-amber-400">0 XP</div>
+            </div>
+            <div class="h-8 w-px bg-white/15"></div>
+            <div class="text-center px-2">
+              <div class="text-[10px] uppercase tracking-wider text-amber-200/80 font-bold">Streak</div>
+              <div id="quiz-streak" class="font-mono text-xl font-extrabold text-orange-400">0 🔥</div>
+            </div>
+            <div class="h-8 w-px bg-white/15"></div>
+            <div class="text-center px-2">
+              <div class="text-[10px] uppercase tracking-wider text-amber-200/80 font-bold">Rank</div>
+              <div id="quiz-rank" class="text-xs font-bold text-teal-300">Quantum Novice</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quiz Stage -->
+      <div class="max-w-4xl mx-auto">
+        <div id="quiz-card" class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-6 sm:p-8 shadow-xl">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= QUICK FORMULA SHEET MODAL ================= -->
+  <div id="formula-modal" class="fixed inset-0 z-50 bg-stone-950/75 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-[#FAF6F0] border-2 border-orange-400 rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto text-stone-900">
+      <div class="flex items-center justify-between border-b border-stone-300 pb-3">
+        <div>
+          <h3 class="font-display text-lg font-extrabold text-stone-900 flex items-center gap-2">
+            <i class="fa-solid fa-bolt text-orange-600"></i> Quick Formula &amp; Constant Sheet (Ch 11.5–11.7)
+          </h3>
+          <p class="text-xs text-stone-600 font-semibold">Prepared by Hrishikesh M (PGT Physics)</p>
+        </div>
+        <button onclick="toggleFormulaModal()" class="w-8 h-8 rounded-lg bg-stone-200 hover:bg-stone-300 text-stone-800 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+        <div class="p-3 rounded-xl bg-white border border-orange-300 shadow-sm">
+          <div class="text-orange-700 font-sans font-extrabold mb-1">1. Energy of a Photon</div>
+          <p class="text-stone-900 text-sm font-bold">E = h&nu; = hc / &lambda;</p>
+          <p class="text-stone-600 mt-1">In eV: E (eV) &approx; 1242 / &lambda; (in nm)</p>
+        </div>
+        <div class="p-3 rounded-xl bg-white border border-teal-300 shadow-sm">
+          <div class="text-teal-700 font-sans font-extrabold mb-1">2. Momentum of a Photon</div>
+          <p class="text-stone-900 text-sm font-bold">p = E / c = h&nu; / c = h / &lambda;</p>
+          <p class="text-stone-600 mt-1">Speed of photon: c = 3 &times; 10⁸ m/s</p>
+        </div>
+        <div class="p-3 rounded-xl bg-white border border-purple-300 shadow-sm">
+          <div class="text-purple-800 font-sans font-extrabold mb-1">3. Einstein's Photoelectric Eq.</div>
+          <p class="text-stone-900 text-sm font-bold">K<sub>max</sub> = h&nu; &minus; &phi;<sub>0</sub> = h(&nu; &minus; &nu;<sub>0</sub>)</p>
+          <p class="text-stone-600 mt-1">Work function: &phi;<sub>0</sub> = h&nu;<sub>0</sub> = hc / &lambda;<sub>0</sub></p>
+        </div>
+        <div class="p-3 rounded-xl bg-white border border-amber-400 shadow-sm">
+          <div class="text-amber-800 font-sans font-extrabold mb-1">4. Stopping Potential (V<sub>0</sub>)</div>
+          <p class="text-stone-900 text-sm font-bold">eV<sub>0</sub> = K<sub>max</sub> = h&nu; &minus; &phi;<sub>0</sub></p>
+          <p class="text-stone-600 mt-1">V<sub>0</sub> = (h/e)&nu; &minus; (&phi;<sub>0</sub>/e) &rarr; Slope = h/e</p>
+        </div>
+        <div class="p-3 rounded-xl bg-white border border-rose-300 shadow-sm">
+          <div class="text-rose-700 font-sans font-extrabold mb-1">5. Number of Photons/sec (N)</div>
+          <p class="text-stone-900 text-sm font-bold">N = P / E = (P &cdot; &lambda;) / (hc)</p>
+          <p class="text-stone-600 mt-1">Where P = Power of monochromatic source</p>
+        </div>
+        <div class="p-3 rounded-xl bg-white border border-stone-300 shadow-sm">
+          <div class="text-stone-800 font-sans font-extrabold mb-1">6. Fundamental Constants</div>
+          <p class="text-stone-800 font-bold">h = 6.626 &times; 10⁻³⁴ J s</p>
+          <p class="text-stone-800 font-bold">e = 1.6 &times; 10⁻¹⁹ C &nbsp;|&nbsp; 1 eV = 1.6 &times; 10⁻¹⁹ J</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST NOTIFICATION ================= -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 px-4 py-3 rounded-xl bg-teal-700 text-white text-xs font-bold shadow-xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-msg">Concise notes copied to clipboard!</span>
+  </div>
+
+  <!-- ================= FOOTER WITH AUTHOR CREDIT ================= -->
+  <footer class="mt-12 border-t border-amber-500/30 header-gradient py-5 text-amber-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-orange-400 animate-ping"></span>
+        <span>NCERT Class 12 Physics Interactive Smart E-Book • Chapter 11 (Sections 11.5, 11.6 &amp; 11.7)</span>
+      </div>
+      <div class="text-white font-semibold">
+        Designed &amp; Developed for Class 12 Physics Students — Credit: <span class="text-amber-300 font-extrabold">Hrishikesh M (PGT Physics)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT LOGIC & SIMULATIONS ================= -->
+  <script>
+    /* =========================================================================
+       1. TAB NAVIGATION, PALETTE SWITCHER & UTILITY FUNCTIONS
+    ========================================================================= */
+    let currentTab = 'tab1';
+
+    function setThemePalette(paletteName) {
+      document.body.classList.remove('palette-emerald', 'palette-royal');
+      if (paletteName === 'emerald') {
+        document.body.classList.add('palette-emerald');
+        showToast("Switched to Botanical Emerald & Gold Palette!");
+      } else if (paletteName === 'royal') {
+        document.body.classList.add('palette-royal');
+        showToast("Switched to Royal Amethyst & Crimson Palette!");
+      } else {
+        showToast("Switched to Terracotta, Mulberry & Warm Ivory Palette!");
+      }
+    }
+
+    function switchTab(tabId) {
+      currentTab = tabId;
+      document.querySelectorAll('.tab-pane').forEach(pane => {
+        pane.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+
+      // Update Tab Buttons
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+        btn.className = "nav-tab-btn shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 bg-white/10 text-amber-100 hover:bg-white/20 hover:text-white";
+      });
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.className = "nav-tab-btn active-tab shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 bg-gradient-to-r from-orange-500 to-rose-600 text-white shadow-md shadow-orange-600/30";
+      }
+
+      // Trigger resize so active canvas adjusts dimensions accurately
+      setTimeout(() => {
+        resizeAllCanvases();
+      }, 40);
+    }
+
+    function toggleFormulaModal() {
+      const modal = document.getElementById('formula-modal');
+      modal.classList.toggle('hidden');
+      modal.classList.toggle('flex');
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = message;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2600);
+    }
+
+    function copySectionNotes(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      const text = "NCERT Class 12 Physics Notes (Credit: Hrishikesh M, PGT Physics)\n\n" + container.innerText;
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.value = text;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempTextArea);
+      showToast("Concise notes copied to clipboard for easy study!");
+    }
+
+    /* =========================================================================
+       2. SIMULATION 1: WAVE THEORY PREDICTION VS QUANTUM REALITY (TAB 1)
+    ========================================================================= */
+    const sim1 = {
+      mode: 'wave', // 'wave' or 'quantum'
+      freq: 4.5,    // x 10^14 Hz (Threshold for Na is 6.65)
+      nu0: 6.65,
+      intensity: 80,
+      timeElapsed: 0,
+      electrons: [],
+      emitted: [],
+      photons: [],
+      wavePhase: 0
+    };
+
+    function initSim1Electrons() {
+      sim1.electrons = [];
+      sim1.emitted = [];
+      sim1.photons = [];
+      sim1.timeElapsed = 0;
+      for (let i = 0; i < 8; i++) {
+        sim1.electrons.push({
+          xRatio: 0.12 + i * 0.11,
+          energyFill: 0 // 0 to 100%
+        });
+      }
+    }
+
+    function setSim1Mode(mode) {
+      sim1.mode = mode;
+      const btnWave = document.getElementById('sim1-btn-wave');
+      const btnQuantum = document.getElementById('sim1-btn-quantum');
+      if (mode === 'wave') {
+        btnWave.className = "px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-orange-600 text-white shadow";
+        btnQuantum.className = "px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-stone-700 hover:text-stone-950";
+      } else {
+        btnQuantum.className = "px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-teal-700 text-white shadow";
+        btnWave.className = "px-3.5 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-stone-700 hover:text-stone-950";
+      }
+      resetSim1();
+      updateSim1Controls();
+    }
+
+    function resetSim1() {
+      initSim1Electrons();
+    }
+
+    function updateSim1Controls() {
+      sim1.freq = parseFloat(document.getElementById('sim1-freq').value);
+      sim1.intensity = parseInt(document.getElementById('sim1-intensity').value);
+
+      const isAbove = sim1.freq >= sim1.nu0;
+      const freqLabel = document.getElementById('sim1-freq-val');
+      freqLabel.innerHTML = `${sim1.freq.toFixed(2)} &times; 10<sup>14</sup> Hz ${isAbove ? '<span class="text-teal-700">(Above &nu;₀)</span>' : '<span class="text-rose-600">(Below &nu;₀)</span>'}`;
+
+      document.getElementById('sim1-intensity-val').textContent = `${sim1.intensity}% Intensity`;
+
+      const statusBox = document.getElementById('sim1-status-box');
+      if (sim1.mode === 'wave') {
+        statusBox.className = "p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-xs space-y-1.5 text-stone-800";
+        statusBox.innerHTML = `
+          <div class="font-extrabold text-orange-800 flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation"></i> Classical Wave Prediction Mode:</div>
+          <p>• Continuous wavefront spreads energy thinly across ALL electrons.</p>
+          <p>• <strong>Predicted Time Lag:</strong> Takes <span class="text-orange-700 font-bold">Hours</span> for electrons to soak up &phi;₀ = 2.75 eV.</p>
+          <p>• Even for <span class="font-mono">&nu; &lt; &nu;₀</span>, wave theory claims emission will eventually happen with <span class="font-mono">K<sub>max</sub> &propto; Intensity</span>!</p>
+        `;
+      } else {
+        statusBox.className = "p-3.5 rounded-xl bg-teal-50 border border-teal-300 text-xs space-y-1.5 text-stone-800";
+        if (!isAbove) {
+          statusBox.innerHTML = `
+            <div class="font-extrabold text-rose-700 flex items-center gap-1.5"><i class="fa-solid fa-ban"></i> Experimental Reality (&nu; &lt; &nu;₀):</div>
+            <p>• Each photon carries <span class="font-mono font-bold">h&nu; = ${(sim1.freq * 0.4136).toFixed(2)} eV</span>, which is less than <span class="font-mono font-bold">&phi;₀ = 2.75 eV</span>.</p>
+            <p>• <strong>ZERO Photoelectric Emission</strong> no matter how high the Intensity (${sim1.intensity}%) or how long you wait!</p>
+          `;
+        } else {
+          const kmax = (sim1.freq * 0.4136 - 2.75).toFixed(2);
+          statusBox.innerHTML = `
+            <div class="font-extrabold text-teal-800 flex items-center gap-1.5"><i class="fa-solid fa-bolt"></i> Experimental Reality (&nu; &ge; &nu;₀):</div>
+            <p>• <strong>Instantaneous Emission (&Delta;t &approx; 10⁻⁹ s)!</strong> One photon kicks out one electron immediately.</p>
+            <p>• <span class="font-mono text-teal-800 font-bold">K<sub>max</sub> = ${kmax} eV</span> (depends ONLY on &nu;, completely independent of Intensity!).</p>
+          `;
+        }
+      }
+    }
+
+    function freqToColor(nu) {
+      if (nu < 4.8) return '#fb7185'; // Warm Coral Red
+      if (nu < 5.3) return '#fb923c'; // Vibrant Orange
+      if (nu < 5.8) return '#facc15'; // Warm Gold
+      if (nu < 6.4) return '#2dd4bf'; // Teal Mint
+      if (nu < 7.2) return '#f472b6'; // Magenta Rose
+      return '#c084fc';               // Royal Amethyst UV
+    }
+
+    function drawSim1() {
+      const canvas = document.getElementById('canvas-sim1');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const surfaceY = H * 0.72;
+      const lightColor = freqToColor(sim1.freq);
+
+      // Draw Warm Copper-Bronze Metal Block
+      const grad = ctx.createLinearGradient(0, surfaceY, 0, H);
+      grad.addColorStop(0, '#4A2210');
+      grad.addColorStop(1, '#271006');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, surfaceY, W, H - surfaceY);
+
+      ctx.strokeStyle = '#F59E0B';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(0, surfaceY);
+      ctx.lineTo(W, surfaceY);
+      ctx.stroke();
+
+      ctx.fillStyle = '#FDE68A';
+      ctx.font = 'bold 12px Inter, sans-serif';
+      ctx.fillText('SODIUM METAL SURFACE (Work Function φ₀ = 2.75 eV, ν₀ = 6.65 × 10¹⁴ Hz)', 16, H - 12);
+
+      if (sim1.mode === 'wave') {
+        // WAVE MODE: Draw continuous sine wavefronts washing down
+        sim1.wavePhase += 0.08 * (sim1.freq / 5);
+        sim1.timeElapsed += 0.03 * (sim1.intensity / 50);
+
+        const amp = 12 + (sim1.intensity / 100) * 28;
+        ctx.strokeStyle = lightColor;
+        ctx.lineWidth = 2.5;
+
+        for (let wY = 35; wY < surfaceY - 10; wY += 36) {
+          ctx.beginPath();
+          for (let x = 20; x < W - 20; x += 6) {
+            const yOffset = Math.sin((x * 0.03 * (sim1.freq / 5)) - sim1.wavePhase + wY * 0.05) * (amp * 0.45);
+            if (x === 20) ctx.moveTo(x, wY + yOffset);
+            else ctx.lineTo(x, wY + yOffset);
+          }
+          ctx.stroke();
+        }
+
+        // Slowly fill all electrons simultaneously
+        sim1.electrons.forEach(el => {
+          el.energyFill += (sim1.intensity * 0.0022);
+          if (el.energyFill >= 100) {
+            el.energyFill = 0;
+            sim1.emitted.push({
+              x: el.xRatio * W,
+              y: surfaceY - 8,
+              vy: -(1.2 + (sim1.intensity / 100) * 3.2),
+              kVal: (0.4 + (sim1.intensity / 100) * 2.5).toFixed(2)
+            });
+          }
+        });
+
+        // Draw Surface Electrons with slow Energy Progress Bars
+        sim1.electrons.forEach(el => {
+          const ex = el.xRatio * W;
+          const ey = surfaceY + 22;
+
+          ctx.fillStyle = '#FBBF24';
+          ctx.beginPath();
+          ctx.arc(ex, ey, 11, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#1C0D1A';
+          ctx.font = 'bold 10px JetBrains Mono';
+          ctx.fillText('e⁻', ex - 6, ey + 4);
+
+          const barW = 36;
+          ctx.fillStyle = '#1C0D1A';
+          ctx.fillRect(ex - barW / 2, ey + 16, barW, 7);
+          ctx.fillStyle = '#2DD4BF';
+          ctx.fillRect(ex - barW / 2, ey + 16, (el.energyFill / 100) * barW, 7);
+          ctx.strokeStyle = '#FDE68A';
+          ctx.strokeRect(ex - barW / 2, ey + 16, barW, 7);
+        });
+
+        // Draw Simulated Clock Overlay showing HOURS elapsed
+        ctx.fillStyle = 'rgba(38, 11, 33, 0.92)';
+        ctx.fillRect(16, 14, 335, 58);
+        ctx.strokeStyle = '#F59E0B';
+        ctx.strokeRect(16, 14, 335, 58);
+        ctx.fillStyle = '#FBBF24';
+        ctx.font = 'bold 12px Inter';
+        ctx.fillText('WAVE THEORY CLOCK (Continuous Shared Absorption):', 26, 34);
+        ctx.fillStyle = '#FEF3C7';
+        ctx.font = 'bold 13px JetBrains Mono';
+        ctx.fillText(`Simulated Time: ${(sim1.timeElapsed).toFixed(1)} Hours elapsed...`, 26, 56);
+
+      } else {
+        // QUANTUM EXPERIMENTAL REALITY MODE
+        const isAbove = sim1.freq >= sim1.nu0;
+
+        if (Math.random() < (sim1.intensity / 100) * 0.35) {
+          const targetIdx = Math.floor(Math.random() * sim1.electrons.length);
+          const targetX = sim1.electrons[targetIdx].xRatio * W;
+          sim1.photons.push({
+            x: targetX - 90,
+            y: 20,
+            vx: 3.6,
+            vy: (surfaceY - 20) / 25,
+            targetX: targetX
+          });
+        }
+
+        // Update & Draw Photons
+        for (let i = sim1.photons.length - 1; i >= 0; i--) {
+          const p = sim1.photons[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          ctx.fillStyle = lightColor;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 7, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = '#FEF3C7';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          if (p.y >= surfaceY) {
+            if (isAbove) {
+              const kmax = (sim1.freq * 0.4136 - 2.75);
+              sim1.emitted.push({
+                x: p.x,
+                y: surfaceY - 6,
+                vy: -(1.5 + kmax * 1.4),
+                kVal: kmax.toFixed(2)
+              });
+            }
+            sim1.photons.splice(i, 1);
+          }
+        }
+
+        // Draw Surface Electrons
+        sim1.electrons.forEach(el => {
+          const ex = el.xRatio * W;
+          const ey = surfaceY + 22;
+          ctx.fillStyle = '#2DD4BF';
+          ctx.beginPath();
+          ctx.arc(ex, ey, 11, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#042F2E';
+          ctx.font = 'bold 10px JetBrains Mono';
+          ctx.fillText('e⁻', ex - 6, ey + 4);
+        });
+
+        // Overlay HUD for Experimental Reality
+        ctx.fillStyle = 'rgba(38, 11, 33, 0.92)';
+        ctx.fillRect(16, 14, 355, 58);
+        ctx.strokeStyle = isAbove ? '#2DD4BF' : '#FB7185';
+        ctx.strokeRect(16, 14, 355, 58);
+        ctx.fillStyle = isAbove ? '#5EEAD4' : '#FDA4AF';
+        ctx.font = 'bold 12px Inter';
+        ctx.fillText(isAbove ? 'ACTUAL EXPERIMENT: Instantaneous Emission (< 10⁻⁹ s)' : 'ACTUAL EXPERIMENT: ν < ν₀ → ZERO Emission!', 26, 34);
+        ctx.fillStyle = '#FEF3C7';
+        ctx.font = 'bold 12px JetBrains Mono';
+        const hv = (sim1.freq * 0.4136).toFixed(2);
+        ctx.fillText(isAbove ? `hν = ${hv} eV > φ₀ (K_max = ${(hv - 2.75).toFixed(2)} eV)` : `hν = ${hv} eV < φ₀ (2.75 eV) — Photons Fail!`, 26, 56);
+      }
+
+      // Update & Draw Emitted Photoelectrons
+      for (let i = sim1.emitted.length - 1; i >= 0; i--) {
+        const em = sim1.emitted[i];
+        em.y += em.vy;
+
+        ctx.fillStyle = '#2DD4BF';
+        ctx.beginPath();
+        ctx.arc(em.x, em.y, 9, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#042F2E';
+        ctx.font = 'bold 9px JetBrains Mono';
+        ctx.fillText('e⁻', em.x - 5, em.y + 3);
+
+        ctx.fillStyle = '#99F6E4';
+        ctx.font = '10px JetBrains Mono';
+        ctx.fillText(`${em.kVal}eV`, em.x + 12, em.y + 3);
+
+        if (em.y < 10) sim1.emitted.splice(i, 1);
+      }
+    }
+
+    /* =========================================================================
+       3. SIMULATION 2: EINSTEIN'S QUANTUM PACKET & ENERGY BUDGET (TAB 2)
+    ========================================================================= */
+    const sim2 = {
+      phi: 2.75,
+      metalName: 'Sodium (Na)',
+      freq: 8.0,
+      intensity: 50,
+      photons: [],
+      electrons: []
+    };
+
+    function updateSim2() {
+      const sel = document.getElementById('sim2-metal');
+      sim2.phi = parseFloat(sel.value);
+      sim2.metalName = sel.options[sel.selectedIndex].getAttribute('data-name');
+      sim2.freq = parseFloat(document.getElementById('sim2-freq').value);
+      sim2.intensity = parseInt(document.getElementById('sim2-int').value);
+
+      const ehv = sim2.freq * 0.4136;
+      const kmax = Math.max(0, ehv - sim2.phi);
+
+      document.getElementById('sim2-freq-label').innerHTML = `${sim2.freq.toFixed(2)} &times; 10<sup>14</sup> Hz`;
+      document.getElementById('sim2-int-label').textContent = `${sim2.intensity} Photons/s`;
+      document.getElementById('sim2-ehv').textContent = `${ehv.toFixed(2)} eV`;
+      document.getElementById('sim2-phi').textContent = `${sim2.phi.toFixed(2)} eV`;
+
+      const kmaxEl = document.getElementById('sim2-kmax');
+      if (ehv >= sim2.phi) {
+        kmaxEl.textContent = `${kmax.toFixed(2)} eV (${(kmax * 1.6e-19).toExponential(2)} J)`;
+        kmaxEl.className = "font-mono font-extrabold text-teal-700 text-xs sm:text-sm";
+      } else {
+        kmaxEl.textContent = `0.00 eV (No Emission: hν < φ₀)`;
+        kmaxEl.className = "font-mono font-extrabold text-rose-600 text-xs";
+      }
+
+      const total = Math.max(ehv, sim2.phi);
+      const phiPct = Math.min(100, (sim2.phi / total) * 100);
+      const kPct = ehv > sim2.phi ? ((ehv - sim2.phi) / total) * 100 : 0;
+      document.getElementById('sim2-bar-phi').style.width = `${phiPct}%`;
+      document.getElementById('sim2-bar-kmax').style.width = `${kPct}%`;
+    }
+
+    function drawSim2() {
+      const canvas = document.getElementById('canvas-sim2');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const ehv = sim2.freq * 0.4136;
+      const kmax = Math.max(0, ehv - sim2.phi);
+      const surfaceY = H * 0.68;
+      const color = freqToColor(sim2.freq);
+
+      // Draw Warm Copper-Plum Metal Potential Well
+      ctx.fillStyle = '#3B1810';
+      ctx.fillRect(0, surfaceY, W, H - surfaceY);
+      ctx.strokeStyle = '#F59E0B';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(0, surfaceY);
+      ctx.lineTo(W, surfaceY);
+      ctx.stroke();
+
+      // Deeper layer indicator
+      ctx.strokeStyle = '#78350F';
+      ctx.setLineDash([5, 5]);
+      ctx.beginPath();
+      ctx.moveTo(0, surfaceY + 45);
+      ctx.lineTo(W, surfaceY + 45);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = '#FDE68A';
+      ctx.font = 'bold 11px Inter';
+      ctx.fillText(`${sim2.metalName} — Surface Layer (Escape Energy = φ₀ = ${sim2.phi.toFixed(2)} eV)`, 14, surfaceY + 20);
+      ctx.fillStyle = '#FDBA74';
+      ctx.fillText(`Deeper Tightly Bound Electrons (Extra Collision Loss → Emerge with K < K_max)`, 14, surfaceY + 65);
+
+      // Spawn Photons
+      if (Math.random() < (sim2.intensity / 100) * 0.35) {
+        const isSurfaceHit = Math.random() > 0.35;
+        sim2.photons.push({
+          x: 40 + Math.random() * (W - 140),
+          y: 20,
+          vy: 4.2,
+          vx: 1.5,
+          targetY: isSurfaceHit ? surfaceY + 12 : surfaceY + 55,
+          isSurface: isSurfaceHit
+        });
+      }
+
+      // Update & Draw Photons
+      for (let i = sim2.photons.length - 1; i >= 0; i--) {
+        const p = sim2.photons[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#1C0D1A';
+        ctx.font = 'bold 9px JetBrains Mono';
+        ctx.fillText('hν', p.x - 6, p.y + 3);
+
+        if (p.y >= p.targetY) {
+          if (ehv >= sim2.phi) {
+            const extraLoss = p.isSurface ? 0 : Math.min(kmax, 0.25 + Math.random() * 0.6);
+            const actualK = Math.max(0, kmax - extraLoss);
+            if (actualK > 0.02) {
+              sim2.electrons.push({
+                x: p.x,
+                y: p.targetY,
+                vx: 1.2 + Math.random() * 1.2,
+                vy: -(1.5 + actualK * 1.1),
+                k: actualK,
+                isMax: p.isSurface
+              });
+            }
+          }
+          sim2.photons.splice(i, 1);
+        }
+      }
+
+      // Update & Draw Emitted Electrons
+      for (let i = sim2.electrons.length - 1; i >= 0; i--) {
+        const e = sim2.electrons[i];
+        e.x += e.vx;
+        e.y += e.vy;
+
+        ctx.fillStyle = e.isMax ? '#2DD4BF' : '#FBBF24';
+        ctx.beginPath();
+        ctx.arc(e.x, e.y, 9, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#1C0D1A';
+        ctx.font = 'bold 9px JetBrains Mono';
+        ctx.fillText('e⁻', e.x - 5, e.y + 3);
+
+        ctx.fillStyle = e.isMax ? '#5EEAD4' : '#FDE68A';
+        ctx.font = 'bold 10px JetBrains Mono';
+        ctx.fillText(e.isMax ? `K_max=${e.k.toFixed(2)}eV` : `K=${e.k.toFixed(2)}eV`, e.x + 12, e.y + 3);
+
+        if (e.y < 10 || e.x > W) sim2.electrons.splice(i, 1);
+      }
+
+      // Top Legend Overlay
+      ctx.fillStyle = 'rgba(38, 11, 33, 0.92)';
+      ctx.fillRect(14, 12, 385, 52);
+      ctx.strokeStyle = '#C084FC';
+      ctx.strokeRect(14, 12, 385, 52);
+      ctx.fillStyle = '#FEF3C7';
+      ctx.font = 'bold 12px JetBrains Mono';
+      ctx.fillText(`Equation: K_max = hν - φ₀ = ${ehv.toFixed(2)} - ${sim2.phi.toFixed(2)} = ${kmax.toFixed(2)} eV`, 24, 32);
+      ctx.fillStyle = '#FDE68A';
+      ctx.font = '11px Inter';
+      ctx.fillText(`● Teal e⁻: Surface electron (K_max)  |  ● Gold e⁻: Deeper electron (K < K_max)`, 24, 52);
+    }
+
+    /* =========================================================================
+       4. SIMULATION 3: STOPPING POTENTIAL (V₀ vs ν) & MILLIKAN LAB (TAB 3)
+    ========================================================================= */
+    const sim3 = {
+      freq: 9.0,
+      retardingV: -1.0,
+      particles: []
+    };
+
+    function autoMatchStoppingPotential() {
+      const v0Na = Math.max(0, sim3.freq * 0.4136 - 2.75);
+      sim3.retardingV = -parseFloat(v0Na.toFixed(2));
+      document.getElementById('sim3-ret').value = sim3.retardingV;
+      updateSim3();
+    }
+
+    function updateSim3() {
+      sim3.freq = parseFloat(document.getElementById('sim3-freq').value);
+      sim3.retardingV = parseFloat(document.getElementById('sim3-ret').value);
+
+      document.getElementById('sim3-freq-val').innerHTML = `${sim3.freq.toFixed(2)} &times; 10<sup>14</sup> Hz`;
+      document.getElementById('sim3-ret-val').textContent = `${sim3.retardingV.toFixed(2)} V`;
+
+      const ehv = sim3.freq * 0.4136;
+      const v0Na = ehv - 2.75;
+      const v0Cs = ehv - 2.14;
+      const v0Zn = ehv - 4.30;
+
+      document.getElementById('sim3-na-v0').textContent = v0Na > 0 ? `V₀ = ${v0Na.toFixed(2)} V` : `No Emission (ν < ν₀)`;
+      document.getElementById('sim3-cs-v0').textContent = v0Cs > 0 ? `V₀ = ${v0Cs.toFixed(2)} V` : `No Emission (ν < ν₀)`;
+      document.getElementById('sim3-zn-v0').textContent = v0Zn > 0 ? `V₀ = ${v0Zn.toFixed(2)} V` : `No Emission (ν < ν₀)`;
+
+      const status = document.getElementById('sim3-chamber-status');
+      if (v0Na <= 0) {
+        status.innerHTML = `<span class="text-rose-700 font-bold">Sodium Collector Status:</span> Incident frequency is below Sodium's threshold (<span class="font-mono">6.65&times;10¹⁴ Hz</span>). Zero photocurrent.`;
+      } else if (Math.abs(sim3.retardingV) >= v0Na) {
+        status.innerHTML = `<span class="text-orange-700 font-bold">STOPPED! (|V| &ge; V₀):</span> Retarding potential (${sim3.retardingV.toFixed(2)} V) stops even the fastest Sodium electrons (<span class="font-mono">K<sub>max</sub> = ${v0Na.toFixed(2)} eV</span>)! Current I = 0.`;
+      } else {
+        status.innerHTML = `<span class="text-teal-800 font-bold">CURRENT FLOWING (|V| &lt; V₀):</span> Fastest electrons overcome ${sim3.retardingV.toFixed(2)} V and reach the collector plate!`;
+      }
+    }
+
+    function drawSim3() {
+      const canvas = document.getElementById('canvas-sim3');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const splitX = W * 0.42;
+
+      // --- LEFT: RETARDING POTENTIAL TUBE (FOR SODIUM) ---
+      ctx.strokeStyle = '#581C4F';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(12, 14, splitX - 24, H - 28);
+
+      ctx.fillStyle = '#FEF3C7';
+      ctx.font = 'bold 12px Inter';
+      ctx.fillText('1. Sodium Stopping Potential Tube', 24, 34);
+
+      const cathodeX = 36;
+      const anodeX = splitX - 42;
+      const tubeTop = 65;
+      const tubeBottom = H - 55;
+
+      // Cathode Plate (Emitter C)
+      ctx.fillStyle = '#FB923C';
+      ctx.fillRect(cathodeX, tubeTop, 8, tubeBottom - tubeTop);
+      ctx.font = 'bold 10px JetBrains Mono';
+      ctx.fillText('Emitter (Na)', cathodeX - 8, tubeBottom + 18);
+
+      // Collector Plate (Anode A)
+      ctx.fillStyle = '#FB7185';
+      ctx.fillRect(anodeX, tubeTop, 8, tubeBottom - tubeTop);
+      ctx.fillText(`Collector (${sim3.retardingV.toFixed(2)}V)`, anodeX - 65, tubeBottom + 18);
+
+      const ehv = sim3.freq * 0.4136;
+      const kmaxNa = Math.max(0, ehv - 2.75);
+
+      if (kmaxNa > 0 && Math.random() < 0.25) {
+        sim3.particles.push({
+          x: cathodeX + 12,
+          y: tubeTop + 20 + Math.random() * (tubeBottom - tubeTop - 40),
+          vx: Math.sqrt(kmaxNa) * 3.1,
+          ax: (sim3.retardingV * 3.1 * 3.1) / (2 * (anodeX - cathodeX - 18))
+        });
+      }
+
+      for (let i = sim3.particles.length - 1; i >= 0; i--) {
+        const p = sim3.particles[i];
+        p.vx += p.ax;
+        p.x += p.vx;
+
+        ctx.fillStyle = p.vx > 0 ? '#2DD4BF' : '#FBBF24';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (p.x >= anodeX || p.x < cathodeX) {
+          sim3.particles.splice(i, 1);
+        }
+      }
+
+      // --- RIGHT: MILLIKAN'S V0 vs ν LINEAR GRAPH ---
+      const gLeft = splitX + 45;
+      const gRight = W - 25;
+      const gTop = 35;
+      const gBottom = H - 45;
+      const gZeroY = gTop + (gBottom - gTop) * 0.56;
+
+      ctx.strokeStyle = '#9D7B96';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(gLeft, gTop);
+      ctx.lineTo(gLeft, gBottom);
+      ctx.moveTo(gLeft, gZeroY);
+      ctx.lineTo(gRight, gZeroY);
+      ctx.stroke();
+
+      ctx.fillStyle = '#FEF3C7';
+      ctx.font = 'bold 12px Inter';
+      ctx.fillText('2. Millikan V₀ vs ν Graph: V₀ = (h/e)ν - φ₀/e', gLeft, 24);
+
+      ctx.fillStyle = '#FDE68A';
+      ctx.font = '10px JetBrains Mono';
+      ctx.fillText('V₀ (Volts)', gLeft - 38, gTop + 10);
+      ctx.fillText('0', gLeft - 14, gZeroY + 4);
+      ctx.fillText('ν (×10¹⁴ Hz) →', gRight - 90, gZeroY + 16);
+
+      const mapX = (nu) => gLeft + (nu / 14.5) * (gRight - gLeft);
+      const mapY = (v) => gZeroY - (v / 3.8) * (gZeroY - gTop);
+
+      const metals = [
+        { name: 'Caesium (Cs)', phi: 2.14, color: '#2DD4BF' },
+        { name: 'Sodium (Na)', phi: 2.75, color: '#FB923C' },
+        { name: 'Zinc (Zn)', phi: 4.30, color: '#C084FC' }
+      ];
+
+      metals.forEach(m => {
+        const nu0 = m.phi / 0.4136;
+        ctx.strokeStyle = m.color;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.moveTo(mapX(0), mapY(-m.phi));
+        ctx.lineTo(mapX(nu0), mapY(0));
+        ctx.stroke();
+
+        ctx.setLineDash([]);
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(mapX(nu0), mapY(0));
+        ctx.lineTo(mapX(14.0), mapY(14.0 * 0.4136 - m.phi));
+        ctx.stroke();
+
+        ctx.fillStyle = m.color;
+        ctx.beginPath();
+        ctx.arc(mapX(nu0), mapY(0), 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        const currentV0 = sim3.freq * 0.4136 - m.phi;
+        if (currentV0 >= 0) {
+          const px = mapX(sim3.freq);
+          const py = mapY(currentV0);
+          ctx.beginPath();
+          ctx.arc(px, py, 6, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = '#ffffff';
+          ctx.stroke();
+        }
+      });
+
+      const curX = mapX(sim3.freq);
+      ctx.strokeStyle = 'rgba(254, 243, 199, 0.25)';
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(curX, gTop);
+      ctx.lineTo(curX, gBottom);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = '#FBBF24';
+      ctx.font = 'bold 11px JetBrains Mono';
+      ctx.fillText('All lines parallel! Universal Slope = h/e', gLeft + 15, gBottom - 8);
+    }
+
+    /* =========================================================================
+       5. SIMULATION 4: THE PHOTON SANDBOX (TAB 4)
+    ========================================================================= */
+    const sim4 = {
+      mode: 'flux',
+      wavelength: 500,
+      power: 5,
+      particles: [],
+      collisionPhase: 0
+    };
+
+    function setSim4Mode(mode) {
+      sim4.mode = mode;
+      sim4.particles = [];
+      sim4.collisionPhase = 0;
+
+      ['flux', 'field', 'compton'].forEach(m => {
+        const btn = document.getElementById('sim4-btn-' + m);
+        if (m === mode) {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition bg-orange-600 text-white shadow";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition text-stone-700 hover:text-stone-950";
+        }
+      });
+      updateSim4();
+    }
+
+    function updateSim4() {
+      sim4.wavelength = parseInt(document.getElementById('sim4-wave').value);
+      sim4.power = parseInt(document.getElementById('sim4-power').value);
+
+      const c = 3e8;
+      const h = 6.626e-34;
+      const lamM = sim4.wavelength * 1e-9;
+      const nu = c / lamM;
+      const E_J = (h * c) / lamM;
+      const E_eV = E_J / 1.6e-19;
+      const p = h / lamM;
+      const N = (sim4.power * 1e-3) / E_J;
+
+      document.getElementById('sim4-wave-val').textContent = `${sim4.wavelength} nm`;
+      document.getElementById('sim4-power-val').textContent = `${sim4.power.toFixed(1)} mW`;
+      document.getElementById('sim4-nu').innerHTML = `${(nu / 1e14).toFixed(2)} &times; 10<sup>14</sup> Hz`;
+      document.getElementById('sim4-e').textContent = `${E_eV.toFixed(2)} eV (${E_J.toExponential(2)} J)`;
+      document.getElementById('sim4-p').innerHTML = `${(p * 1e27).toFixed(2)} &times; 10<sup>-27</sup> kg·m/s`;
+      document.getElementById('sim4-n').innerHTML = `${(N / 1e16).toFixed(2)} &times; 10<sup>16</sup> photons/s`;
+
+      const hint = document.getElementById('sim4-mode-hint');
+      if (sim4.mode === 'flux') {
+        hint.innerHTML = `<strong class="text-orange-900">NCERT Point (iii):</strong> Changing Beam Power (Intensity) changes the <em>number of photons per second</em>, while each photon keeps the exact same Energy (${E_eV.toFixed(2)} eV)!`;
+      } else if (sim4.mode === 'field') {
+        hint.innerHTML = `<strong class="text-orange-900">NCERT Point (iv):</strong> Photons are electrically neutral (<span class="font-mono">q = 0</span>) and travel straight through strong Electric (<span class="font-mono">E</span>) &amp; Magnetic (<span class="font-mono">B</span>) fields undeflected!`;
+      } else {
+        hint.innerHTML = `<strong class="text-orange-900">NCERT Point (v) &amp; Compton Effect (1924):</strong> In photon-electron collision, Total Energy &amp; Momentum are conserved, while photon wavelength shifts (<span class="font-mono">&lambda;' &gt; &lambda;</span>).`;
+      }
+    }
+
+    function drawSim4() {
+      const canvas = document.getElementById('canvas-sim4');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const nu = 3000 / sim4.wavelength;
+      const color = freqToColor(nu);
+
+      if (sim4.mode === 'flux') {
+        ctx.strokeStyle = '#2DD4BF';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.ellipse(W * 0.65, H * 0.5, 22, 95, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fillStyle = '#5EEAD4';
+        ctx.font = 'bold 12px Inter';
+        ctx.fillText('Unit Cross-Section Area (A)', W * 0.65 - 75, H * 0.5 + 120);
+
+        if (Math.random() < sim4.power * 0.06) {
+          sim4.particles.push({
+            x: 30,
+            y: H * 0.5 + (Math.random() - 0.5) * 140,
+            vx: 5.5
+          });
+        }
+
+        for (let i = sim4.particles.length - 1; i >= 0; i--) {
+          const pt = sim4.particles[i];
+          pt.x += pt.vx;
+
+          ctx.fillStyle = color;
+          ctx.beginPath();
+          ctx.arc(pt.x, pt.y, 8, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#1C0D1A';
+          ctx.font = 'bold 9px JetBrains Mono';
+          ctx.fillText('hν', pt.x - 6, pt.y + 3);
+
+          if (pt.x > W - 20) sim4.particles.splice(i, 1);
+        }
+
+        ctx.fillStyle = '#FEF3C7';
+        ctx.font = 'bold 13px Inter';
+        ctx.fillText('Each Photon Packet Moves at Speed c = 3 × 10⁸ m/s with identical Energy E = hc/λ', 20, 30);
+
+      } else if (sim4.mode === 'field') {
+        const pLeft = W * 0.25;
+        const pRight = W * 0.78;
+        ctx.fillStyle = '#E11D48';
+        ctx.fillRect(pLeft, 45, pRight - pLeft, 16);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 11px JetBrains Mono';
+        ctx.fillText('+ + + +  POSITIVE ELECTRIC PLATE (+E)  + + + +', pLeft + 35, 57);
+
+        ctx.fillStyle = '#0D9488';
+        ctx.fillRect(pLeft, H - 60, pRight - pLeft, 16);
+        ctx.fillStyle = '#ffffff';
+        ctx.fillText('- - - -  NEGATIVE ELECTRIC PLATE (-E)  - - - -', pLeft + 35, H - 48);
+
+        if (Math.random() < 0.15) {
+          sim4.particles.push({ x: 30, y: H / 2, vx: 5, vy: 0, ay: 0, type: 'photon' });
+          sim4.particles.push({ x: 30, y: H / 2, vx: 4.5, vy: 0, ay: -0.045, type: 'electron' });
+          sim4.particles.push({ x: 30, y: H / 2, vx: 4.5, vy: 0, ay: 0.045, type: 'proton' });
+        }
+
+        for (let i = sim4.particles.length - 1; i >= 0; i--) {
+          const pt = sim4.particles[i];
+          if (pt.x > pLeft && pt.x < pRight) {
+            pt.vy += pt.ay;
+          }
+          pt.x += pt.vx;
+          pt.y += pt.vy;
+
+          ctx.beginPath();
+          if (pt.type === 'photon') {
+            ctx.fillStyle = '#FBBF24';
+            ctx.arc(pt.x, pt.y, 7, 0, Math.PI * 2);
+            ctx.fill();
+          } else if (pt.type === 'electron') {
+            ctx.fillStyle = '#2DD4BF';
+            ctx.arc(pt.x, pt.y, 6, 0, Math.PI * 2);
+            ctx.fill();
+          } else {
+            ctx.fillStyle = '#FB7185';
+            ctx.arc(pt.x, pt.y, 6, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          if (pt.x > W - 20 || pt.y < 55 || pt.y > H - 55) {
+            sim4.particles.splice(i, 1);
+          }
+        }
+
+        ctx.fillStyle = '#FBBF24';
+        ctx.font = 'bold 12px JetBrains Mono';
+        ctx.fillText('● Photon (q = 0): UNDEFLECTED Straight Path!', W * 0.42, H / 2 - 12);
+        ctx.fillStyle = '#2DD4BF';
+        ctx.fillText('● Electron (q = -e): Deflected Up', W * 0.42, 95);
+        ctx.fillStyle = '#FB7185';
+        ctx.fillText('● Positive Ion (q = +e): Deflected Down', W * 0.42, H - 80);
+
+      } else {
+        sim4.collisionPhase = (sim4.collisionPhase + 1.8) % 240;
+        const cx = W * 0.48;
+        const cy = H * 0.52;
+
+        ctx.fillStyle = '#FEF3C7';
+        ctx.font = 'bold 13px Inter';
+        ctx.fillText('Compton Scattering (1924): Total Energy & Momentum Conserved (E_i = E_f, p_i = p_f)', 20, 30);
+
+        if (sim4.collisionPhase < 100) {
+          const px = 40 + (sim4.collisionPhase / 100) * (cx - 40);
+          ctx.fillStyle = '#C084FC';
+          ctx.beginPath();
+          ctx.arc(px, cy, 11, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#1C0D1A';
+          ctx.font = 'bold 10px JetBrains Mono';
+          ctx.fillText('hν', px - 7, cy + 4);
+
+          ctx.fillStyle = '#2DD4BF';
+          ctx.beginPath();
+          ctx.arc(cx, cy, 13, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#042F2E';
+          ctx.fillText('e⁻', cx - 6, cy + 4);
+        } else {
+          const t = (sim4.collisionPhase - 100) / 140;
+          const spX = cx + t * 210;
+          const spY = cy - t * 110;
+
+          const elX = cx + t * 190;
+          const elY = cy + t * 95;
+
+          ctx.strokeStyle = '#9D7B96';
+          ctx.setLineDash([4, 4]);
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.lineTo(spX, spY);
+          ctx.moveTo(cx, cy);
+          ctx.lineTo(elX, elY);
+          ctx.stroke();
+          ctx.setLineDash([]);
+
+          ctx.fillStyle = '#F59E0B';
+          ctx.beginPath();
+          ctx.arc(spX, spY, 10, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#FDE68A';
+          ctx.font = 'bold 11px JetBrains Mono';
+          ctx.fillText(`Scattered Photon (hν' < hν, λ' > λ)`, spX - 40, spY - 16);
+
+          ctx.fillStyle = '#2DD4BF';
+          ctx.beginPath();
+          ctx.arc(elX, elY, 13, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#5EEAD4';
+          ctx.fillText(`Recoil Electron (K_e = hν - hν')`, elX - 30, elY + 28);
+        }
+      }
+    }
+
+    /* =========================================================================
+       6. PRACTICE QUESTIONS DATA & RENDERER (TAB 5)
+    ========================================================================= */
+    const practiceQuestions = [
+      {
+        id: 1,
+        badge: "NCERT Solved Numerical",
+        type: "Numerical",
+        question: "Monochromatic light of frequency 6.0 × 10¹⁴ Hz is produced by a laser. The power emitted is 2.0 × 10⁻³ W. (a) What is the energy of a photon in the light beam? (b) How many photons per second, on the average, are emitted by the source?",
+        unit: "× 10⁻¹⁹ J (Part a)",
+        expectedAnswer: 3.98,
+        tolerance: 0.06,
+        hint: "Use E = hν with h = 6.63 × 10⁻³⁴ J s, then N = P / E.",
+        solutionHTML: `
+          <p><strong>Given:</strong> <span class="font-mono">&nu; = 6.0 &times; 10<sup>14</sup> Hz</span>, Power <span class="font-mono">P = 2.0 &times; 10<sup>-3</sup> W</span>, <span class="font-mono">h = 6.63 &times; 10<sup>-34</sup> J s</span></p>
+          <p class="mt-1"><strong>(a) Energy of each photon:</strong></p>
+          <p class="font-mono text-orange-800 font-bold">E = h&nu; = (6.63 &times; 10<sup>-34</sup> J s) &times; (6.0 &times; 10<sup>14</sup> s<sup>-1</sup>) = <strong>3.98 &times; 10<sup>-19</sup> J</strong> (&approx; 2.49 eV)</p>
+          <p class="mt-1"><strong>(b) Number of photons emitted per second (N):</strong></p>
+          <p class="font-mono text-teal-800 font-bold">N = P / E = (2.0 &times; 10<sup>-3</sup> W) / (3.98 &times; 10<sup>-19</sup> J) = <strong>5.0 &times; 10<sup>15</sup> photons/second</strong></p>
+        `
+      },
+      {
+        id: 2,
+        badge: "NCERT Numerical • Stopping Potential",
+        type: "Numerical",
+        question: "The work function of Caesium is 2.14 eV. Find (a) the threshold frequency for Caesium, and (b) the wavelength of the incident light if the photocurrent is brought to zero by a stopping potential of 0.60 V.",
+        unit: "nm (Wavelength in Part b)",
+        expectedAnswer: 454,
+        tolerance: 5,
+        hint: "First find ν₀ = φ₀ / h. For part (b), use eV₀ = hc/λ - φ₀ → hc/λ = 2.14 + 0.60 = 2.74 eV.",
+        solutionHTML: `
+          <p><strong>Given:</strong> <span class="font-mono">&phi;<sub>0</sub> = 2.14 eV = 2.14 &times; 1.6 &times; 10<sup>-19</sup> J = 3.424 &times; 10<sup>-19</sup> J</span>, Stopping potential <span class="font-mono">V<sub>0</sub> = 0.60 V</span></p>
+          <p class="mt-1"><strong>(a) Threshold Frequency (&nu;<sub>0</sub>):</strong></p>
+          <p class="font-mono text-orange-800 font-bold">&nu;<sub>0</sub> = &phi;<sub>0</sub> / h = (3.424 &times; 10<sup>-19</sup> J) / (6.63 &times; 10<sup>-34</sup> J s) = <strong>5.16 &times; 10<sup>14</sup> Hz</strong></p>
+          <p class="mt-1"><strong>(b) Incident Wavelength (&lambda;):</strong></p>
+          <p class="font-mono text-teal-800 font-bold">eV<sub>0</sub> = hc/&lambda; &minus; &phi;<sub>0</sub> &rArr; hc/&lambda; = eV<sub>0</sub> + &phi;<sub>0</sub> = 0.60 eV + 2.14 eV = 2.74 eV</p>
+          <p class="font-mono text-teal-800 font-bold">&lambda; = 1242 eV·nm / 2.74 eV = <strong>454 nm</strong></p>
+        `
+      },
+      {
+        id: 3,
+        badge: "CBSE Board • Graph Slope Question",
+        type: "Numerical",
+        question: "In an experiment on photoelectric effect, the slope of the cut-off voltage (V₀) versus frequency (ν) of incident light is found to be 4.12 × 10⁻¹⁵ V s. Calculate the value of Planck's constant (h) in × 10⁻³⁴ J s.",
+        unit: "× 10⁻³⁴ J s",
+        expectedAnswer: 6.59,
+        tolerance: 0.05,
+        hint: "From Eq. (11.4), Slope = h / e. Therefore, h = Slope × e.",
+        solutionHTML: `
+          <p><strong>Formula (NCERT Eq. 11.4):</strong> <span class="font-mono">V<sub>0</sub> = (h/e)&nu; &minus; &phi;<sub>0</sub>/e</span></p>
+          <p class="mt-1"><strong>Step 1:</strong> Slope of <span class="font-mono">V<sub>0</sub></span> vs <span class="font-mono">&nu;</span> straight line is <span class="font-mono">m = h / e = 4.12 &times; 10<sup>-15</sup> V s</span></p>
+          <p class="mt-1"><strong>Step 2:</strong> Multiply by elementary charge <span class="font-mono">e = 1.6 &times; 10<sup>-19</sup> C</span>:</p>
+          <p class="font-mono text-teal-800 font-bold">h = (4.12 &times; 10<sup>-15</sup> V s) &times; (1.6 &times; 10<sup>-19</sup> C) = <strong>6.592 &times; 10<sup>-34</sup> J s</strong></p>
+        `
+      },
+      {
+        id: 4,
+        badge: "NCERT Exercise • Photon Momentum",
+        type: "Numerical",
+        question: "Find the (a) energy in eV, and (b) momentum (in × 10⁻²⁷ kg m/s) of each photon in a monochromatic light beam of wavelength 400 nm.",
+        unit: "× 10⁻²⁷ kg m/s (Momentum)",
+        expectedAnswer: 1.66,
+        tolerance: 0.05,
+        hint: "Use p = h / λ = (6.63 × 10⁻³⁴) / (400 × 10⁻⁹).",
+        solutionHTML: `
+          <p><strong>Given:</strong> Wavelength <span class="font-mono">&lambda; = 400 nm = 4.0 &times; 10<sup>-7</sup> m</span></p>
+          <p class="mt-1"><strong>(a) Photon Energy (E):</strong></p>
+          <p class="font-mono text-orange-800 font-bold">E = hc / &lambda; &approx; 1242 / 400 = <strong>3.10 eV</strong> (or <span class="font-mono">4.97 &times; 10<sup>-19</sup> J</span>)</p>
+          <p class="mt-1"><strong>(b) Photon Momentum (p):</strong></p>
+          <p class="font-mono text-teal-800 font-bold">p = h / &lambda; = (6.63 &times; 10<sup>-34</sup> J s) / (4.0 &times; 10<sup>-7</sup> m) = <strong>1.66 &times; 10<sup>-27</sup> kg m s<sup>-1</sup></strong></p>
+        `
+      },
+      {
+        id: 5,
+        badge: "Conceptual • 3-Mark Board Question",
+        type: "Conceptual",
+        question: "Why is wave theory of light unable to explain the existence of threshold frequency (ν₀) and instantaneous emission in photoelectric effect?",
+        unit: null,
+        solutionHTML: `
+          <ul class="space-y-1.5 list-disc pl-4 text-stone-800">
+            <li><strong>Threshold Frequency Failure:</strong> In wave picture, energy is absorbed continuously and depends on beam intensity (amplitude of E and B fields). Thus, a sufficiently intense beam of <em>any</em> low frequency should eventually supply enough energy to exceed work function (&phi;<sub>0</sub>). This contradicts the existence of a strict threshold frequency (&nu;<sub>0</sub>).</li>
+            <li><strong>Instantaneous Emission Failure:</strong> Wavefront energy spreads over millions of surface electrons, so energy absorbed per electron per second is extremely small. Calculations show it would take <strong>hours or more</strong> for a single electron to escape, contradicting instantaneous emission (&sim;10<sup>-9</sup> s).</li>
+          </ul>
+        `
+      },
+      {
+        id: 6,
+        badge: "Conceptual • Photon Picture (11.7)",
+        type: "Conceptual",
+        question: "If the intensity of incident monochromatic radiation of wavelength λ is doubled without changing its frequency, how does it affect: (a) Energy of each photon, (b) Number of photons incident per second, and (c) Maximum kinetic energy (K_max) of photoelectrons?",
+        unit: null,
+        solutionHTML: `
+          <ul class="space-y-1.5 list-disc pl-4 text-stone-800">
+            <li><strong>(a) Energy of each photon (E = hc/&lambda;):</strong> <strong>Remains unchanged</strong> because photon energy depends only on frequency/wavelength and is independent of intensity (NCERT Point iii).</li>
+            <li><strong>(b) Number of photons per second:</strong> <strong>Gets doubled</strong> because intensity at a given wavelength is directly proportional to the number of photons crossing unit area per second.</li>
+            <li><strong>(c) Maximum Kinetic Energy (K<sub>max</sub> = h&nu; &minus; &phi;<sub>0</sub>):</strong> <strong>Remains unchanged</strong> because each photoelectron is emitted by absorbing a single photon of unchanged energy <span class="font-mono">h&nu;</span>.</li>
+          </ul>
+        `
+      }
+    ];
+
+    function renderPracticeQuestions() {
+      const container = document.getElementById('practice-questions-container');
+      container.innerHTML = practiceQuestions.map(q => `
+        <div class="rounded-2xl bg-white border-2 border-[#E6DAC8] p-5 shadow-md flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold ${q.type === 'Numerical' ? 'bg-orange-100 text-orange-800 border border-orange-300' : 'bg-purple-100 text-purple-800 border border-purple-300'}">
+                ${q.badge}
+              </span>
+              <span class="font-mono text-xs font-bold text-stone-500">Q#${q.id}</span>
+            </div>
+            <p class="text-sm text-stone-900 font-semibold leading-relaxed mb-4">${q.question}</p>
+
+            ${q.type === 'Numerical' ? `
+              <div class="p-3 rounded-xl bg-[#FAF6F0] border border-stone-300 mb-3">
+                <label class="block text-[11px] text-stone-700 font-bold mb-1.5">Check Your Calculated Answer (${q.unit}):</label>
+                <div class="flex items-center gap-2">
+                  <input type="number" step="any" id="ans-input-${q.id}" placeholder="Enter value..." class="bg-white border border-stone-300 rounded-lg px-3 py-1.5 text-xs text-stone-900 font-mono w-full focus:outline-none focus:border-orange-500" />
+                  <button onclick="checkNumericalAnswer(${q.id})" class="px-3.5 py-1.5 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs shrink-0 transition shadow-sm">
+                    Verify
+                  </button>
+                </div>
+                <div id="ans-feedback-${q.id}" class="text-xs mt-1.5 hidden"></div>
+              </div>
+            ` : ''}
+          </div>
+
+          <div>
+            <button onclick="toggleSolution(${q.id})" class="w-full py-2 px-3 rounded-xl bg-[#2D122B] hover:bg-[#3f1b3c] text-amber-100 text-xs font-bold flex items-center justify-between transition shadow-sm">
+              <span><i class="fa-solid fa-key text-amber-400 mr-1.5"></i> View Step-by-Step Board Solution</span>
+              <i id="sol-icon-${q.id}" class="fa-solid fa-chevron-down transition-transform"></i>
+            </button>
+            <div id="sol-box-${q.id}" class="hidden mt-3 p-3.5 rounded-xl bg-[#FAF6F0] border-2 border-teal-500/40 text-xs space-y-1 leading-relaxed text-stone-800">
+              ${q.solutionHTML}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function checkNumericalAnswer(id) {
+      const q = practiceQuestions.find(item => item.id === id);
+      const val = parseFloat(document.getElementById('ans-input-' + id).value);
+      const fb = document.getElementById('ans-feedback-' + id);
+      fb.classList.remove('hidden');
+
+      if (isNaN(val)) {
+        fb.className = "text-xs mt-1.5 text-amber-800 font-bold";
+        fb.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-1"></i> Please enter a numeric value. Hint: ${q.hint}`;
+        return;
+      }
+
+      if (Math.abs(val - q.expectedAnswer) <= q.tolerance) {
+        fb.className = "text-xs mt-1.5 text-teal-800 font-extrabold";
+        fb.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Spot on! (${q.expectedAnswer} ${q.unit}). Great calculation!`;
+      } else {
+        fb.className = "text-xs mt-1.5 text-rose-700 font-bold";
+        fb.innerHTML = `<i class="fa-solid fa-lightbulb mr-1"></i> Not quite. Hint: ${q.hint}`;
+      }
+    }
+
+    function toggleSolution(id) {
+      const box = document.getElementById('sol-box-' + id);
+      const icon = document.getElementById('sol-icon-' + id);
+      box.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    }
+
+    function toggleAllSolutions(expand) {
+      practiceQuestions.forEach(q => {
+        const box = document.getElementById('sol-box-' + q.id);
+        const icon = document.getElementById('sol-icon-' + q.id);
+        if (expand) {
+          box.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        } else {
+          box.classList.add('hidden');
+          icon.classList.remove('rotate-180');
+        }
+      });
+    }
+
+    /* =========================================================================
+       7. GAMIFIED QUIZ ENGINE (6 MCQs — TAB 6)
+    ========================================================================= */
+    const quizQuestions = [
+      {
+        q: "1. According to the classical wave theory of light, which of the following was FALSELY predicted for the photoelectric effect?",
+        options: [
+          "Maximum kinetic energy (K_max) is independent of intensity",
+          "A threshold frequency (ν₀) should NOT exist, and emission should take hours",
+          "Photoelectric emission is instantaneous (< 10⁻⁹ s)",
+          "Light is absorbed in discrete packets of energy hν"
+        ],
+        correct: 1,
+        explanation: "NCERT Section 11.5: Wave theory predicted that a sufficiently intense beam of any frequency should eventually impart enough energy (so no threshold frequency should exist) and that continuous wavefront absorption would take hours."
+      },
+      {
+        q: "2. According to Einstein's photoelectric equation (Eq. 11.4), the graph of stopping potential (V₀) versus incident frequency (ν) is a straight line with a universal slope equal to:",
+        options: [
+          "h / φ₀",
+          "e / h",
+          "h / e (independent of the nature of the metal)",
+          "φ₀ / e (depends on the work function)"
+        ],
+        correct: 2,
+        explanation: "From V₀ = (h/e)ν - φ₀/e (NCERT Eq. 11.4), the slope of the V₀ vs ν straight line is h/e, which is independent of the nature of the material."
+      },
+      {
+        q: "3. Which scientist performed a series of precise experiments (1906–1916) on alkali metals like sodium—initially aiming to disprove Einstein's photoelectric equation—but ended up verifying it and measuring Planck's constant h?",
+        options: [
+          "A.H. Compton",
+          "R.A. Millikan",
+          "Heinrich Hertz",
+          "Max Planck"
+        ],
+        correct: 1,
+        explanation: "NCERT Section 11.6: During 1906–1916, R.A. Millikan measured the slope of the straight line for sodium and verified Einstein's photoelectric equation with great precision (winning the 1923 Nobel Prize)."
+      },
+      {
+        q: "4. In the photon picture of electromagnetic radiation, if the intensity of light of a given wavelength λ is increased:",
+        options: [
+          "The energy of each photon increases proportionally",
+          "The momentum of each photon increases",
+          "Only the number of photons crossing a given area per second increases, while each photon has the same energy",
+          "The speed of photons increases beyond c"
+        ],
+        correct: 2,
+        explanation: "NCERT Section 11.7 Point (iii): All photons of a particular frequency ν or wavelength λ have the same energy E = hν and momentum p = h/λ. Increasing intensity only increases the number of photons per second."
+      },
+      {
+        q: "5. What happens when a beam of photons passes through a region containing strong electric (E) and magnetic (B) fields?",
+        options: [
+          "Photons are deflected towards the positive plate",
+          "Photons move in a circular path due to magnetic Lorentz force",
+          "Photons are electrically neutral and are NOT deflected by electric and magnetic fields",
+          "Photons split into electrons and positrons immediately"
+        ],
+        correct: 2,
+        explanation: "NCERT Section 11.7 Point (iv): Photons are electrically neutral and are not deflected by electric and magnetic fields."
+      },
+      {
+        q: "6. In a photon-particle collision (such as a photon-electron collision), which of the following statements is TRUE?",
+        options: [
+          "Total energy and total momentum are conserved, and number of photons is always conserved",
+          "Total energy and total momentum are conserved, but the number of photons may NOT be conserved",
+          "Neither momentum nor photon number is conserved",
+          "Only kinetic energy is conserved; momentum is lost"
+        ],
+        correct: 1,
+        explanation: "NCERT Section 11.7 Point (v): In a photon-particle collision, total energy and total momentum are conserved. However, the number of photons may not be conserved—a photon may be absorbed or a new photon created."
+      }
+    ];
+
+    const quizState = {
+      index: 0,
+      score: 0,
+      streak: 0,
+      correctCount: 0,
+      answered: false
+    };
+
+    function getRankTitle(score) {
+      if (score >= 600) return "Nobel Laureate 🏆";
+      if (score >= 400) return "Quantum Master ⚡";
+      if (score >= 200) return "Photon Explorer 🔬";
+      return "Quantum Novice 🌱";
+    }
+
+    function updateQuizHUD() {
+      document.getElementById('quiz-score').textContent = `${quizState.score} XP`;
+      document.getElementById('quiz-streak').textContent = `${quizState.streak} 🔥`;
+      document.getElementById('quiz-rank').textContent = getRankTitle(quizState.score);
+    }
+
+    function renderQuizCard() {
+      const card = document.getElementById('quiz-card');
+      updateQuizHUD();
+
+      if (quizState.index >= quizQuestions.length) {
+        const pct = Math.round((quizState.correctCount / quizQuestions.length) * 100);
+        card.innerHTML = `
+          <div class="text-center space-y-5 py-4">
+            <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-orange-500 to-rose-600 mx-auto flex items-center justify-center text-white text-4xl shadow-xl shadow-orange-500/25">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <div>
+              <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-xs font-extrabold uppercase tracking-wider">
+                Mission Accomplished!
+              </span>
+              <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-stone-900 mt-2">
+                Final Rank: ${getRankTitle(quizState.score)}
+              </h3>
+              <p class="text-stone-600 text-sm mt-1">
+                You answered <strong>${quizState.correctCount} out of ${quizQuestions.length}</strong> questions accurately (${pct}%) and earned <strong>${quizState.score} XP</strong>!
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-[#FAF6F0] border-2 border-orange-300 max-w-md mx-auto text-xs text-stone-800">
+              <p class="font-extrabold text-orange-800 mb-1">Teacher's Appreciation Note</p>
+              <p>"Excellent mastery of Sections 11.5, 11.6 &amp; 11.7! Keep revising the 5 Photon Picture points and Einstein's V₀ vs ν graph slope for your Class 12 Board Exams."</p>
+              <p class="text-purple-900 font-extrabold mt-1.5">— Hrishikesh M (PGT Physics)</p>
+            </div>
+
+            <button onclick="restartQuiz()" class="px-6 py-3 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-extrabold text-sm transition shadow-lg">
+              <i class="fa-solid fa-rotate-right mr-1.5"></i> Play Again
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      const item = quizQuestions[quizState.index];
+      const progressPct = ((quizState.index + 1) / quizQuestions.length) * 100;
+
+      card.innerHTML = `
+        <div class="space-y-5">
+          <!-- Progress Bar -->
+          <div class="flex items-center justify-between text-xs text-stone-600 font-bold">
+            <span>Question ${quizState.index + 1} of ${quizQuestions.length}</span>
+            <span class="font-mono text-orange-700">+100 XP (+ Streak Bonus)</span>
+          </div>
+          <div class="w-full h-2.5 bg-stone-200 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-orange-500 to-rose-600 h-full transition-all duration-300" style="width: ${progressPct}%"></div>
+          </div>
+
+          <h3 class="font-display text-lg sm:text-xl font-extrabold text-stone-900 leading-snug">
+            ${item.q}
+          </h3>
+
+          <div class="space-y-2.5">
+            ${item.options.map((opt, idx) => `
+              <button onclick="selectQuizOption(${idx})" id="qopt-${idx}" class="w-full text-left p-4 rounded-xl bg-[#FAF6F0] hover:bg-orange-50 border-2 border-stone-300 hover:border-orange-400 text-sm text-stone-900 font-semibold transition flex items-center gap-3">
+                <span class="w-7 h-7 rounded-lg bg-[#2D122B] text-amber-200 font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                  ${String.fromCharCode(65 + idx)}
+                </span>
+                <span>${opt}</span>
+              </button>
+            `).join('')}
+          </div>
+
+          <div id="quiz-explanation" class="hidden p-4 rounded-xl text-xs sm:text-sm space-y-2"></div>
+
+          <div class="flex justify-end">
+            <button onclick="nextQuizQuestion()" id="quiz-next-btn" class="hidden px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-extrabold text-xs sm:text-sm transition shadow-md">
+              ${quizState.index === quizQuestions.length - 1 ? 'Finish & View Certificate' : 'Next Question →'}
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectQuizOption(selectedIdx) {
+      if (quizState.answered) return;
+      quizState.answered = true;
+
+      const item = quizQuestions[quizState.index];
+      const isCorrect = selectedIdx === item.correct;
+
+      if (isCorrect) {
+        quizState.streak++;
+        quizState.correctCount++;
+        quizState.score += 100 + (quizState.streak * 20);
+      } else {
+        quizState.streak = 0;
+      }
+
+      item.options.forEach((_, idx) => {
+        const btn = document.getElementById('qopt-' + idx);
+        if (idx === item.correct) {
+          btn.className = "w-full text-left p-4 rounded-xl bg-teal-50 border-2 border-teal-600 text-sm text-teal-950 font-extrabold flex items-center gap-3";
+        } else if (idx === selectedIdx && !isCorrect) {
+          btn.className = "w-full text-left p-4 rounded-xl bg-rose-50 border-2 border-rose-600 text-sm text-rose-950 font-extrabold flex items-center gap-3";
+        } else {
+          btn.className = "w-full text-left p-4 rounded-xl bg-stone-100 border border-stone-200 text-sm text-stone-400 flex items-center gap-3 opacity-60";
+        }
+      });
+
+      const expBox = document.getElementById('quiz-explanation');
+      expBox.classList.remove('hidden');
+      expBox.className = `p-4 rounded-xl text-xs sm:text-sm ${isCorrect ? 'bg-teal-50 border-2 border-teal-400 text-teal-950' : 'bg-rose-50 border-2 border-rose-400 text-rose-950'}`;
+      expBox.innerHTML = `
+        <div class="font-extrabold mb-1">${isCorrect ? '✅ Correct! Awesome Quantum Intuition!' : '❌ Not quite — Let’s review the NCERT concept:'}</div>
+        <p class="text-stone-800">${item.explanation}</p>
+      `;
+
+      document.getElementById('quiz-next-btn').classList.remove('hidden');
+      updateQuizHUD();
+    }
+
+    function nextQuizQuestion() {
+      quizState.index++;
+      quizState.answered = false;
+      renderQuizCard();
+    }
+
+    function restartQuiz() {
+      quizState.index = 0;
+      quizState.score = 0;
+      quizState.streak = 0;
+      quizState.correctCount = 0;
+      quizState.answered = false;
+      renderQuizCard();
+    }
+
+    /* =========================================================================
+       8. RESPONSIVE CANVAS RESIZING & MASTER ANIMATION LOOP
+    ========================================================================= */
+    function resizeAllCanvases() {
+      ['canvas-sim1', 'canvas-sim2', 'canvas-sim3', 'canvas-sim4'].forEach(id => {
+        const c = document.getElementById(id);
+        if (c && c.parentElement) {
+          const rect = c.parentElement.getBoundingClientRect();
+          if (rect.width > 0) {
+            c.width = rect.width;
+            c.height = id === 'canvas-sim3' ? 350 : 340;
+          }
+        }
+      });
+    }
+
+    function masterAnimationLoop() {
+      if (currentTab === 'tab1') drawSim1();
+      else if (currentTab === 'tab2') drawSim2();
+      else if (currentTab === 'tab3') drawSim3();
+      else if (currentTab === 'tab4') drawSim4();
+      requestAnimationFrame(masterAnimationLoop);
+    }
+
+    window.addEventListener('resize', resizeAllCanvases);
+
+    window.onload = function () {
+      initSim1Electrons();
+      updateSim1Controls();
+      updateSim2();
+      updateSim3();
+      updateSim4();
+      renderPracticeQuestions();
+      renderQuizCard();
+      resizeAllCanvases();
+      masterAnimationLoop();
+    };
+  </script>
+</body>
+</html>
